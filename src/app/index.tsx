@@ -3,6 +3,7 @@ import { Header } from "../components/header";
 import Constants from 'expo-constants'
 import { Banner } from "../components/banner";
 import { Search } from "../components/search";
+import { Section } from "../components/section";
 
 const statusBarHeight = Constants.statusBarHeight;
 // px = padding interno na esquerda e na direita
@@ -20,6 +21,21 @@ export default function Index() {
         <Banner/>
         
         <Search/>
+
+        <Section 
+          name="Comidas em Alta"
+          size="text-2xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        
+        />
+        {/* <Section 
+          name="Famosos no Ifood"
+          size="text-2xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        
+        /> */}
       </View>
     </ScrollView>
   );
