@@ -18,8 +18,12 @@ export default function RootLayout() {
           drawerActiveTintColor: '#84cc16', // Cor do texto quando ativo
           drawerInactiveTintColor: '#71717a', // Cor do texto quando inativo
           drawerHideStatusBarOnOpen: false, // deixa a statusbar visivel quando seleciona o drawer
+          overlayColor: 'transparent',
           drawerLabelStyle: {
             marginLeft: -14, // espaço entre icone e texto
+          },
+          sceneContainerStyle: {
+            backgroundColor: '#09090b' // mudando a cor do fundo do scene quando a tela muda de tamanho
           }
         }}
       >
