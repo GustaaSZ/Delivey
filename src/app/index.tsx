@@ -2,6 +2,7 @@ import { Text, View, ScrollView } from "react-native";
 import { Header } from "../components/header";
 import Constants from 'expo-constants'
 import { Banner } from "../components/banner";
+import { Search } from "../components/search";
 
 const statusBarHeight = Constants.statusBarHeight;
 // px = padding interno na esquerda e na direita
@@ -17,6 +18,8 @@ export default function Index() {
         <Header/>
 
         <Banner/>
+        
+        <Search/>
       </View>
     </ScrollView>
   );
