@@ -7,7 +7,7 @@ export function Search() {
         
         <Feather name='search' size={20} color="#a3e635"/>
         <TextInput
-            className='text-zinc-300'
+            className='text-zinc-300 w-full h-full flex-1 bg-transparent'
             placeholder='Procure pelo prato...'
             placeholderTextColor="#a1a1aa"
         />
