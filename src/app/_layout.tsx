@@ -3,6 +3,7 @@ import { Slot } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
+import { transform } from '@babel/core';
 
 export default function RootLayout() {
   return (
@@ -11,7 +12,15 @@ export default function RootLayout() {
       <Drawer 
         screenOptions={{
           headerShown: false,
-          drawerStyle: {backgroundColor: '#3f3f46'} // define a cor do drawer
+          drawerStyle: {backgroundColor: '#09090b', width: "55%", paddingTop: 32}, // define a cor a largura e o espaço superior do drawer
+          drawerActiveBackgroundColor: "transparent", // cor do background quando ativo
+          drawerInactiveBackgroundColor: "transparent", // cor do background quando inativo
+          drawerActiveTintColor: '#84cc16', // Cor do texto quando ativo
+          drawerInactiveTintColor: '#71717a', // Cor do texto quando inativo
+          drawerHideStatusBarOnOpen: false, // deixa a statusbar visivel quando seleciona o drawer
+          drawerLabelStyle: {
+            marginLeft: -14, // espaço entre icone e texto
+          }
         }}
       >
           {/* Estilização do Icone */}
