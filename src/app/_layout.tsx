@@ -53,6 +53,19 @@ export default function RootLayout() {
             ),
           }}
         />
+        <Drawer.Screen 
+          name="shoppingCart" 
+          options={{ 
+            drawerLabel: "Carrinho", 
+            drawerIcon: ({ focused }) => (
+              <Feather 
+                name={focused ? 'shopping-cart' : 'shopping-cart'} 
+                color={focused ? '#d4d4d8' : '#e4e4e7'} 
+                size={18} 
+              />
+            ),
+          }}
+        />
       </Drawer>
       
     </GestureHandlerRootView>
