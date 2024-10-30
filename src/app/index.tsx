@@ -25,28 +25,28 @@ export default function Index() {
           <Banner/>
           
           <Search/>
-
-          <Section 
-            name="Comidas em Alta"
-            size="text-xl"
-            label="Veja mais"
-            action={ () => console.log("Clicou no veja mais")}
-          />
-
-          {/* Chamando o  trendingFoods*/}
-          <TrendingFoods/>
-
-          <Section 
-            name="Famosos no DelivExpress"
-            size="text-xl"
-            label="Veja mais"
-            action={ () => console.log("Clicou no veja mais")}
-          />
-
-          {/* Chamando o  trendingRestaurants*/}
-          <TrendingRestaurants/>
-          
         </View>
+
+        <Section 
+          name="Comidas em Alta"
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+
+        {/* Chamando o  trendingFoods*/}
+        <TrendingFoods/>
+
+        <Section 
+          name="Famosos no DelivExpress"
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+
+        {/* Chamando o  trendingRestaurants*/}
+        <TrendingRestaurants/>
+
       </ScrollView>
     </DrawerSceneWrapper>
   );
