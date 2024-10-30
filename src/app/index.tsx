@@ -5,6 +5,7 @@ import { Banner } from "../components/banner";
 import { Search } from "../components/search";
 import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper"
+import { TrendingFoods } from "../components/trending";
 
 const statusBarHeight = Constants.statusBarHeight;
 // px = padding interno na esquerda e na direita
@@ -26,18 +27,24 @@ export default function Index() {
 
           <Section 
             name="Comidas em Alta"
-            size="text-2xl"
+            size="text-xl"
             label="Veja mais"
             action={ () => console.log("Clicou no veja mais")}
-          
           />
-          {/* <Section 
-            name="Famosos no Ifood"
-            size="text-2xl"
+
+          {/* Chamando o  trendingFoods*/}
+          <TrendingFoods/>
+
+          <Section 
+            name="Famosos no DelivExpress"
+            size="text-xl"
             label="Veja mais"
             action={ () => console.log("Clicou no veja mais")}
-          
-          /> */}
+          />
+
+          {/* Chamando o  trendingRestaurants*/}
+          {/* <TrendingRestaurants/> */}
+
         </View>
       </ScrollView>
     </DrawerSceneWrapper>

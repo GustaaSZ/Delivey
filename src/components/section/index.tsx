@@ -18,7 +18,7 @@ export function Section({ name, size, label, action }: Props) {
         </Text>
 
         <Pressable onPress={action}>
-           <Text className='text-xl text-zinc-400'>{label}</Text>
+           <Text className='text-lg text-zinc-400'>{label}</Text>
         </Pressable>
    </View>
   );
