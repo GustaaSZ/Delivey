@@ -6,6 +6,7 @@ import { Search } from "../components/search";
 import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper"
 import { TrendingFoods } from "../components/trending";
+import { TrendingRestaurants } from "../components/trendingRe";
 
 const statusBarHeight = Constants.statusBarHeight;
 // px = padding interno na esquerda e na direita
@@ -43,8 +44,8 @@ export default function Index() {
           />
 
           {/* Chamando o  trendingRestaurants*/}
-          {/* <TrendingRestaurants/> */}
-
+          <TrendingRestaurants/>
+          
         </View>
       </ScrollView>
     </DrawerSceneWrapper>
