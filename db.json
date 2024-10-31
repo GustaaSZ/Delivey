@@ -2,8 +2,8 @@
   "restaurants": [
     { 
       "id": "1", 
-      "name": "KFC", 
-      "image": "https://i.imgur.com/sZ1Jye3.png"
+      "name": "Jeronimo", 
+      "image": "https://imgur.com/gukOjmT.png"
     },
     { 
       "id": "2", 
@@ -13,75 +13,136 @@
     { 
       "id": "3", 
       "name": "Outback", 
-      "image": "https://i.imgur.com/jg3GJVN.png"
+      "image": "https://imgur.com/gaGNAq8.png"
     },
     { 
       "id": "4", 
-      "name": "Sushi Dev", 
-      "image": "https://i.imgur.com/ffYWFBX.png"
+      "name": "Sushiloko", 
+      "image": "https://imgur.com/pKtOYNC.png"
     },
     { 
       "id": "5", 
-      "name": "Burguer Grill", 
-      "image": "https://i.imgur.com/kmQvG2T.png"
+      "name": "KFC", 
+      "image": "https://i.imgur.com/sZ1Jye3.png"
     },
     { 
       "id": "6", 
-      "name": "Marmitas express", 
-      "image": "https://i.imgur.com/uXRuDFD.png"
+      "name": "La Brasa", 
+      "image": "https://imgur.com/9naUERj.png"
+    },
+    { 
+      "id": "7", 
+      "name": "Coco Bambu", 
+      "image": "https://imgur.com/Zv8hozc.png"
+    },
+    { 
+      "id": "8", 
+      "name": "Buger King", 
+      "image": "https://imgur.com/eh6AWMu.png"
+    },
+    { 
+      "id": "9", 
+      "name": "Magero Burger", 
+      "image": "https://imgur.com/XTO2t5U.png"
+    },
+    { 
+      "id": "10", 
+      "name": "Pizzaria Cesár", 
+      "image": "https://imgur.com/ECAvw8u.png"
+    },
+    { 
+      "id": "11", 
+      "name": "Giraffas", 
+      "image": "https://imgur.com/XYmljrt.png"
+    },
+    { 
+      "id": "12", 
+      "name": "Oakberry", 
+      "image": "https://imgur.com/FriNrnO.png"
     }
   ],
   "foods": [
     { 
       "id": "1", 
-      "name": "Frango assado", 
-      "price": 39.90,
+      "name": "Extra Cheese Bacon", 
+      "price": 44.90,
       "time": "50-60 min",
       "delivery": 5.99,
-      "rating": 4.8,
-      "image": "https://i.imgur.com/CEVUdju.png",
-      "restaurantId": "1"
+      "rating": 5.0,
+      "image": "https://imgur.com/3aH8zZg.png",
+      "restaurantId": "6"
 
     },
     { 
       "id": "2", 
-      "name": "Marmita fit", 
-      "price": 29,
-      "time": "30-40 min",
-      "delivery": 2.99,
+      "name": "La brasa Extreme", 
+      "price": 64.90,
+      "time": "50-80 min",
+      "delivery": 5.99,
       "rating": 4.9,
-      "image": "https://i.imgur.com/uXRuDFD.png",
+      "image": "https://imgur.com/XwPUcB3.png",
       "restaurantId": "6"
+
     },
     { 
       "id": "3", 
-      "name": "Burguer Dev", 
-      "price": 40,
+      "name": "Picanha Black Angus", 
+      "price": 159.00,
       "time": "50-60 min",
-      "delivery": 5.99,
-      "rating": 4.5,
-      "image": "https://i.imgur.com/O5c3lyU.png",
-      "restaurantId": "5"
+      "delivery": 2.99,
+      "rating": 4.9,
+      "image": "https://imgur.com/lhpVU7w.png",
+      "restaurantId": "7"
     },
     { 
       "id": "4", 
-      "name": "Picanha Grill", 
-      "price": 36,
-      "time": "50-60 min",
-      "delivery": 5.99,
-      "rating": 4.4,
-      "image": "https://i.imgur.com/0UjG3wk.png",
-      "restaurantId": "3"
+      "name": "Camarão Coco Brasil", 
+      "price": 344.00,
+      "time": "60-90 min",
+      "delivery": 7.99,
+      "rating": 5.0,
+      "image": "https://imgur.com/TYJjN1m.png",
+      "restaurantId": "7"
     },
     { 
       "id": "5", 
-      "name": "Açai 300ml", 
-      "price": 20,
+      "name": "Big Mac", 
+      "price": 39.99,
+      "time": "40-50 min",
+      "delivery": 4.99,
+      "rating": 4.5,
+      "image": "https://imgur.com/UFRMRI0.png",
+      "restaurantId": "2"
+    },
+    { 
+      "id": "6", 
+      "name": "Pizza de Calabresa", 
+      "price": 54.99,
+      "time": "50-60 min",
+      "delivery": 5.99,
+      "rating": 5.0,
+      "image": "https://imgur.com/QTP9g3J.png",
+      "restaurantId": "10"
+    },
+    { 
+      "id": "7", 
+      "name": "Pizza Broto de Chocolate", 
+      "price": 34.99,
+      "time": "50-60 min",
+      "delivery": 5.99,
+      "rating": 4.9,
+      "image": "https://imgur.com/ukyFp6B.png",
+      "restaurantId": "10"
+    },
+    { 
+      "id": "8", 
+      "name": "Açai Oakberry 400ml", 
+      "price": 16.99,
       "time": "20-30 min",
       "delivery": 2.99,
-      "rating": 4.4,
-      "image": "https://i.imgur.com/BaUUCkc.png",
-      "restaurantId": "3"
+      "rating": 4.5,
+      "image": "https://imgur.com/TP245Dn.png",
+      "restaurantId": "12"
     }
   ]
 }
