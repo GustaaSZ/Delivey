@@ -4,6 +4,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { transform } from '@babel/core';
+import FoodDetails from './foodDetails';
 
 export default function RootLayout() {
   return (
@@ -66,9 +67,22 @@ export default function RootLayout() {
             ),
           }}
         />
+        {/* Ocultando as rotas indesejadas */}
+        <Drawer.Screen 
+          name="foodDetails" 
+          options={{ 
+            drawerItemStyle: { display: 'none' } // ocultando do drawer
+          }}
+        />
+        <Drawer.Screen 
+          name="stack.routes" 
+          options={{ 
+            drawerItemStyle: { display: 'none' } // ocultando do drawer
+          }}
+        />
       </Drawer>
       {/* Configura Stack para rotas como 'foodDetails' */}
-      {/* <Stack.Screen name="shoppingCart" options={{ headerShown: true, title: "Detalhes do Alimento" }} /> */}
+      {/* <Stack.Screen name="foodDetails" component={FoodDetails} options={{ headerShown: true, title: "Detalhes do Alimento" }} /> */}
     </GestureHandlerRootView>
     // </Slot>
   );
