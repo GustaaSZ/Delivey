@@ -29,7 +29,7 @@ export default function Index() {
         </View>
 
         <Section 
-          name="Comidas em Alta"
+          name="Comidas em Alta no DelivExpress"
           size="text-xl"
           label="Veja mais"
           action={ () => console.log("Clicou no veja mais")}

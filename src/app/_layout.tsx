@@ -41,12 +41,12 @@ export default function RootLayout() {
           />
 
         <Drawer.Screen 
-          name="notifications" 
+          name="search" 
           options={{ 
-            drawerLabel: "Notificações", 
+            drawerLabel: "Pesquisa", 
             drawerIcon: ({ focused }) => (
               <Ionicons 
-                name={focused ? 'notifications' : 'notifications-outline'} 
+                name={focused ? 'search' : 'search-outline'} 
                 color={focused ? '#d4d4d8' : '#e4e4e7'} 
                 size={18} 
               />

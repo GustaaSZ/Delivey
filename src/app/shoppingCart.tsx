@@ -22,7 +22,7 @@ export default function ShoppingCart() {
 
           {/* <Banner/> */}
           
-          <Search/>
+          {/* <Search/> */}
 
           <Text className="items-center justify-center text-zinc-300 text-xl">Carrinho de compras</Text>
         </View>
