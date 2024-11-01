@@ -1,4 +1,4 @@
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, } from "react-native";
 import { Header } from "../components/header";
 import Constants from 'expo-constants'
 import { Banner } from "../components/banner";
@@ -15,11 +15,11 @@ export default function Index() {
   return (
     <DrawerSceneWrapper>
       <ScrollView 
-        style={{ flex: 1}} 
+        style={{ flex: 1, backgroundColor: '#18181b' }} 
         className="bg-zinc-900 text-zinc-300"
         showsVerticalScrollIndicator={false}
       >
-        <View className="w-full px-6" style={{ marginTop: statusBarHeight + 15}}>
+        <View className="w-full px-6" style={{ marginTop: statusBarHeight + 15 }}>
           <Header/>
 
           <Banner/>
