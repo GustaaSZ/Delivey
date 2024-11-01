@@ -24,7 +24,8 @@ export default function Index() {
 
           <Banner/>
           
-          <Search/>
+          {/* <Search/> */}
+          <View style={{ height: 1 }} className="rounded-full w-90 gap-1 bg-zinc-600 my-6"></View>
         </View>
 
         <Section 
