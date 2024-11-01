@@ -1,5 +1,5 @@
 import '../styles/global.css'
-import { Slot } from "expo-router";
+import { Slot, Stack  } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
@@ -67,7 +67,8 @@ export default function RootLayout() {
           }}
         />
       </Drawer>
-      
+      {/* Configura Stack para rotas como 'foodDetails' */}
+      {/* <Stack.Screen name="shoppingCart" options={{ headerShown: true, title: "Detalhes do Alimento" }} /> */}
     </GestureHandlerRootView>
     // </Slot>
   );
