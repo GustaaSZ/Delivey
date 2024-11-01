@@ -8,7 +8,7 @@ export function ItemFood2({ food }: { food: FoodProps }) {
     return (
         <Pressable 
             className='flex flex-col rounded-xl relative items-center justify-center'
-            // onPress={() => router.push({ pathname: "/foodDetails", params: { } })} // navega com parâmetros
+            onPress={() => router.push({ pathname: "/foodDetails", params: {id: food.id} })} // navega com parâmetros
         >
             {/* Adicionando a Imagem ao Item/card */}
             <Image
