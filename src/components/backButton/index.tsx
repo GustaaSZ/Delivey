@@ -9,7 +9,7 @@ export default function BackButton() {
   return (
     <View className='w-full items-center justify-center text-zinc-400 relative'>
         <Pressable 
-            style={{ top: -340, left: 25 }}
+            style={{ top: -260, left: 25 }}
             className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center absolute'
             onPress={() => router.push("/search")} // Navegação para a tela anterior
         >
