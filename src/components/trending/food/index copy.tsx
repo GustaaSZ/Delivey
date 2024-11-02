@@ -19,7 +19,8 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                     price: food.price,
                     rating: food.rating,
                     image: food.image,
-                    time: food.time
+                    time: food.time,
+                    ingredientes: food.ingredientes
                 } 
             })} 
         >

@@ -6,7 +6,7 @@ import { useLocalSearchParams } from 'expo-router';
 export default function FoodDetails() {
     
     // Acessa os atributos do alimento
-    const { id, name, price, rating, time, image } = useLocalSearchParams(); 
+    const { id, name, price, rating, time, image, ingredientes } = useLocalSearchParams(); 
     // Verifique se image é uma string
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
 
@@ -18,6 +18,7 @@ export default function FoodDetails() {
             <Text className='text-zinc-400'>ID do alimento: {id}</Text>
             <Text className='text-zinc-400'>Nome do prato : {name}</Text>
             <Text className='text-zinc-400'>Preço : R$ {price}</Text>
+            <Text className='text-zinc-400'>Ingredientes : {ingredientes}</Text>
             <Image 
                 source={{ uri: imageUri }} 
                 className='w-72 h-36 rounded-xl' 

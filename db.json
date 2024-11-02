@@ -70,7 +70,8 @@
       "delivery": 5.99,
       "rating": 5.0,
       "image": "https://imgur.com/3aH8zZg.png",
-      "restaurantId": "6"
+      "restaurantId": "6",
+      "ingredientes": "2 burgers de 100g"
 
     },
     { 

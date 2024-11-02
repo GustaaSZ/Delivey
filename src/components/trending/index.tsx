@@ -12,6 +12,7 @@ export interface FoodProps {
     rating: number;
     image: string;
     restaurantId: string;
+    ingredientes: string;
 }
 
 export function TrendingFoods() {

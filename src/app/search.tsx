@@ -6,7 +6,7 @@ import { Search } from "../components/search";
 import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper";
 import { useState, useEffect } from "react";
-import { ItemFood2 } from "../components/trending/food/index copy"; 
+import { ItemFood2} from "../components/trending/food/index copy"; 
 import { FoodProps } from "../components/trending";
 
 // Constante que define uma altura pra view de forma responsiva
