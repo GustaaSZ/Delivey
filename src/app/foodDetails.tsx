@@ -21,7 +21,7 @@ export default function FoodDetails() {
         >
             {/* px = padding interno na esquerda e na direita */}
             <View className="w-full px-6 bg-zinc-900" style={{ marginTop: statusBarHeight + 15}}>
-                <BackButton />
+                <BackButton  rota='/search'/>
                 <View className='mt-10' >
                     <Image
                         source={{ uri: imageUri }} 
