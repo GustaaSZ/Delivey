@@ -8,8 +8,8 @@ import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper"
 import { TrendingFoods } from "../components/trending";
 import { TrendingRestaurants } from "../components/trendingRe";
 
+// Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
-// px = padding interno na esquerda e na direita
 
 export default function Index() {
   return (
@@ -19,6 +19,7 @@ export default function Index() {
         className="bg-zinc-900 text-zinc-300"
         showsVerticalScrollIndicator={false}
       >
+        {/* px = padding interno na esquerda e na direita */}
         <View className="w-full px-6" style={{ marginTop: statusBarHeight + 15 }}>
           <Header/>
 

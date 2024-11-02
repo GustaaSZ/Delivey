@@ -1,14 +1,10 @@
 import '../styles/global.css'
-import { Slot, Stack  } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
-import { transform } from '@babel/core';
-import FoodDetails from './foodDetails';
 
 export default function RootLayout() {
   return (
-    // <Slot/>
     <GestureHandlerRootView>
       <Drawer 
         screenOptions={{
@@ -81,9 +77,6 @@ export default function RootLayout() {
           }}
         />
       </Drawer>
-      {/* Configura Stack para rotas como 'foodDetails' */}
-      {/* <Stack.Screen name="foodDetails" component={FoodDetails} options={{ headerShown: true, title: "Detalhes do Alimento" }} /> */}
     </GestureHandlerRootView>
-    // </Slot>
   );
 }

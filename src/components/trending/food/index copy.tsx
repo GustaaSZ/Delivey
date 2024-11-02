@@ -3,13 +3,16 @@ import { router, useRouter } from "expo-router";
 import { FoodProps } from '..'
 import { Ionicons, Feather } from '@expo/vector-icons' 
 
+// --- FUNÇÃO ItemFood2 que será Usado na tela de Search --- 
 export function ItemFood2({ food }: { food: FoodProps }) {
     const router = useRouter();
     return (
         <Pressable 
             className='flex flex-col rounded-xl relative items-center justify-center'
             onPress={() => router.push({ 
+                // Caminho de navegação
                 pathname: "/foodDetails", 
+                // Passando os parâmetros para navegação pra tela de foodDetails
                 params: {
                     id: food.id,
                     name: food.name,
@@ -18,7 +21,7 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                     image: food.image,
                     time: food.time
                 } 
-            })} // navega com parâmetros
+            })} 
         >
             {/* Adicionando a Imagem ao Item/card */}
             <Image

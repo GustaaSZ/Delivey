@@ -18,7 +18,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 3. Run the fake API
 
    ```bash
-    npx npx json-server db.json
+    npx json-server db.json
    ```
 
 In the output, you'll find options to open the app in a
