@@ -4,6 +4,7 @@ import BackButton from '../components/backButton';
 import { useLocalSearchParams } from 'expo-router';
 import Constants from 'expo-constants';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Section } from '../components/section';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
@@ -34,20 +35,26 @@ export default function FoodDetails() {
                     {/* Botão de voltar sobre a imagem */}
                     <BackButton rota='/search' />
                 </ImageBackground>
+            </View>
                
                 {/* Detalhes do alimento abaixo da imagem */}
                 <ScrollView 
-                    style={{ paddingHorizontal: 24, paddingVertical: 16 }}
+                    style={{ paddingHorizontal: 24, paddingVertical: 16}}
                     className="bg-zinc-900 text-zinc-300"
                     showsVerticalScrollIndicator={false}
                 >
-                    <Text className='text-zinc-200 text-2xl text-center'>{name}</Text>
-                    <Text className='text-zinc-400'>Id do alimento: {id}</Text>
-                    <Text className='text-zinc-400'>Preço: R$ {price}</Text>
-                    <Text className='text-zinc-400'>Ingredientes: {ingredientes}</Text>
+                    <Section 
+                        name= {`${name}`}
+                        size="text-3xl"
+                        label=""
+                        action={ () => console.log("Clicou no veja mais")}
+                    />
+                    <View className='px-4'>
+                        <Text className='text-zinc-400'>Id do alimento: {id}</Text>
+                        <Text className='text-zinc-400'>Preço: R$ {price}</Text>
+                        <Text className='text-zinc-400'>Ingredientes: {ingredientes}</Text>
+                    </View>
                 </ScrollView>
-                
-            </View>
         </View>
     );
 }

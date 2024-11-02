@@ -3,7 +3,7 @@ import { View, Pressable, Text } from 'react-native';
 // Iterface que serve como contrato pra nosso componente
 interface Props{
   name: String;
-  size: "text-lg" | "text-xl" | "text-2xl";
+  size: "text-lg" | "text-xl" | "text-2xl" | "text-3xl" | "text-4xl";
   label: string;
   action: () => void;
 }
