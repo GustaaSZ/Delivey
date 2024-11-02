@@ -13,7 +13,7 @@ export default function ShoppingCart() {
   return (
     <DrawerSceneWrapper>
       <ScrollView 
-        style={{ flex: 1}} 
+        style={{ flex: 1 }} 
         className="bg-zinc-900 text-zinc-300"
         showsVerticalScrollIndicator={false}
       >

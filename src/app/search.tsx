@@ -9,8 +9,8 @@ import { useState, useEffect } from "react";
 import { ItemFood2 } from "../components/trending/food/index copy"; 
 import { FoodProps } from "../components/trending";
 
+// Constante que define uma altura pra view de forma responsiva
 const statusBarHeight = Constants.statusBarHeight;
-// px = padding interno na esquerda e na direita
 
 export default function Notifications() {
 
@@ -37,7 +37,12 @@ export default function Notifications() {
 
   return (
     <DrawerSceneWrapper>
-        <View className="w-full px-6" style={{ marginTop: statusBarHeight + 15}}>
+      <View 
+        style={{ flex: 1, backgroundColor: '#18181b' }} 
+        className="bg-zinc-900 text-zinc-300"
+      >
+        {/* px = padding interno na esquerda e na direita */}
+        <View className="w-full px-6 bg-zinc-900" style={{ marginTop: statusBarHeight + 15}}>
           <Header/>
 
           {/* Passando a função de busca */}
@@ -49,9 +54,10 @@ export default function Notifications() {
           renderItem={({ item }) => <ItemFood2 food={item} />}
           keyExtractor={(item) => item.id}
           horizontal={ false }
-          contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16}}// Adicionando espaçamento entre os elementos da lista
+          contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16, backgroundColor: '#18181b'}}// Adicionando espaçamento entre os elementos da lista
           showsVerticalScrollIndicator={false}
         />
+      </View>
     </DrawerSceneWrapper>
   );
 }
