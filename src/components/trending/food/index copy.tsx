@@ -20,7 +20,8 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                     rating: food.rating,
                     image: food.image,
                     time: food.time,
-                    ingredientes: food.ingredientes
+                    ingredientes: food.ingredientes,
+                    restaurant: food.restaurantId
                 } 
             })} 
         >

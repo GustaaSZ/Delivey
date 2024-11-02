@@ -5,6 +5,8 @@ import { useLocalSearchParams } from 'expo-router';
 import Constants from 'expo-constants';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Section } from '../components/section';
+import { useEffect, useState } from 'react';
+import { RestaurantProps as TrendingRestaurantProps } from '../components/trendingRe';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
@@ -12,9 +14,44 @@ const statusBarHeight = Constants.statusBarHeight;
 export default function FoodDetails() {
     
     // Acessa os atributos do alimento
-    const { id, name, price, rating, time, image, ingredientes } = useLocalSearchParams(); 
+    const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
     // Verifique se image é uma string
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
+    const [restaurant, setRestaurant] = useState<TrendingRestaurantProps  | null>(null);
+
+    // useEffect(() => {
+    //     // Função anônima
+    //     async function fetchRestaurantDetails () {
+            
+    //         try {
+    //             // Requisição HTTP (Busca da API)
+    //             const response = await fetch(`http://192.168.1.12:3000/restaurants/${restaurantId}`);
+    //             // Transformando o response em json que agora será armazenado no data
+    //             const data = await response.json();
+    //             setRestaurant(data); // passando os dados para o setRestaurant
+    //         } catch (error) {
+    //             console.error("Error fetching restaurant details:", error);
+    //         }
+    //     }
+    //     fetchRestaurantDetails ();
+    // }, [restaurantId]);
+
+    useEffect(() => {
+        const fetchRestaurantDetails = async () => {
+            try {
+                const response = await fetch("http://192.168.1.12:3000/restaurants");
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                setRestaurant(data);
+            } catch (error) {
+                console.error("Error fetching restaurant details:", error);
+            }
+        };
+
+        fetchRestaurantDetails();
+    }, [restaurantId]);
 
     return (
         <View 
@@ -53,8 +90,18 @@ export default function FoodDetails() {
                         <Text className='text-zinc-400'>Id do alimento: {id}</Text>
                         <Text className='text-zinc-400'>Preço: R$ {price}</Text>
                         <Text className='text-zinc-400'>Ingredientes: {ingredientes}</Text>
+                        <Text className='text-zinc-400'>Id do restaurante: {restaurantId}</Text>
+                        {restaurant ? (
+                            <View style={{ marginTop: 16 }}>
+                                <Text className='text-zinc-100 text-xs'>Vendidos por: {restaurant.name}</Text>
+                            </View>
+                        ) : (
+                            <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
+                        )}
                     </View>
+
                 </ScrollView>
         </View>
     );
 }
+
