@@ -1,5 +1,5 @@
 import { router, useRouter } from 'expo-router';
-import { View, Text, Pressable, ImageBackground } from 'react-native';
+import { View, Text, Pressable, ImageBackground, Image } from 'react-native';
 import BackButton from '../components/backButton';
 import { useLocalSearchParams } from 'expo-router';
 import Constants from 'expo-constants';
@@ -17,7 +17,7 @@ export default function FoodDetails() {
     const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
     // Verifique se image é uma string
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
-    const [restaurant, setRestaurant] = useState<TrendingRestaurantProps  | null>(null);
+    const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string }  | null>(null);
 
     useEffect(() => {
         // Função anônima
@@ -40,10 +40,10 @@ export default function FoodDetails() {
                 // Transformando o response em json que agora será armazenado no data
                 const data = await response.json();
                 // Filtrando o restaurante pelo restaurantId do prato
-                const restaurantData = data.find((rest: TrendingRestaurantProps) => rest.id == restaurantId);
+                const foundRestaurant = data.find((rest: {id: string}) => rest.id == restaurantId);
 
                 // Define o restaurante específico ou null caso não encontre
-                setRestaurant(restaurantData || null); 
+                setRestaurant(foundRestaurant || null); 
 
                 // Caso ocorra algum erro, printando o erro
             } catch (error) {
@@ -94,16 +94,18 @@ export default function FoodDetails() {
                         <Text className='text-zinc-400'>Preço: R$ {price}</Text>
                         <Text className='text-zinc-400'>Ingredientes: {ingredientes}</Text>
                         <Text className='text-zinc-400'>Id do restaurante: {restaurantId}</Text>
+
                         {/* DETALHES DO RESTAURANTE */}
                         {restaurant ? (
                             <View style={{ marginTop: 16 }}>
                                 <Text className='text-zinc-100 text-xs'>Vendido por: {restaurant.name}</Text>
                                 <Text className='text-zinc-100 text-xs'>id do restaurante: {restaurant.id}</Text>
+                                <Image
+                                    source={{ uri: restaurant.image }}
+                                    // className='w-20 h-20 rounded-full'
+                                    style={{ width: 100, height: 100, borderRadius: 50 }}
+                                />
                             </View>
-                            // <Image
-                            //     source={{ uri: restaurant.image}}
-                            //     className='w-20 h-20 rounded-full'
-                            // />
                         ) : (
                             <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
                         )}
