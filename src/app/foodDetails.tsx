@@ -19,38 +19,41 @@ export default function FoodDetails() {
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
     const [restaurant, setRestaurant] = useState<TrendingRestaurantProps  | null>(null);
 
-    // useEffect(() => {
-    //     // Função anônima
-    //     async function fetchRestaurantDetails () {
-            
-    //         try {
-    //             // Requisição HTTP (Busca da API)
-    //             const response = await fetch(`http://192.168.1.12:3000/restaurants/${restaurantId}`);
-    //             // Transformando o response em json que agora será armazenado no data
-    //             const data = await response.json();
-    //             setRestaurant(data); // passando os dados para o setRestaurant
-    //         } catch (error) {
-    //             console.error("Error fetching restaurant details:", error);
-    //         }
-    //     }
-    //     fetchRestaurantDetails ();
-    // }, [restaurantId]);
-
     useEffect(() => {
+        // Função anônima
         const fetchRestaurantDetails = async () => {
+            // Código que irá executar com potencial de erro
             try {
+                // Requisição HTTP (Busca da API)
+                // A função fetch faz uma requisição GET para o endereço fornecido.
+                //  Como está sendo usada com await, o código espera a resposta da requisição
+                //  antes de continuar, garantindo que response contenha a resposta da API.
                 const response = await fetch("http://192.168.1.12:3000/restaurants");
                 if (!response.ok) {
+                    // O objeto response possui uma propriedade ok,
+                    //  que será true se a resposta tiver um status 
+                    // de sucesso (códigos 200–299) e false caso contrário.
+                    //  Se ok for false (indicando erro), o código lança (throw) 
+                    // uma nova Error com uma mensagem personalizada que inclui o status HTTP da resposta.
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                // Transformando o response em json que agora será armazenado no data
                 const data = await response.json();
-                setRestaurant(data);
+                // Filtrando o restaurante pelo restaurantId do prato
+                const restaurantData = data.find((rest: TrendingRestaurantProps) => rest.id == restaurantId);
+
+                // Define o restaurante específico ou null caso não encontre
+                setRestaurant(restaurantData || null); 
+
+                // Caso ocorra algum erro, printando o erro
             } catch (error) {
                 console.error("Error fetching restaurant details:", error);
             }
         };
 
-        fetchRestaurantDetails();
+        if (restaurantId) { // Somente busca se o restaurantId estiver presente
+            fetchRestaurantDetails();
+        }
     }, [restaurantId]);
 
     return (
@@ -83,7 +86,7 @@ export default function FoodDetails() {
                     <Section 
                         name= {`${name}`}
                         size="text-3xl"
-                        label=""
+                        label="+"
                         action={ () => console.log("Clicou no veja mais")}
                     />
                     <View className='px-4'>
@@ -91,10 +94,16 @@ export default function FoodDetails() {
                         <Text className='text-zinc-400'>Preço: R$ {price}</Text>
                         <Text className='text-zinc-400'>Ingredientes: {ingredientes}</Text>
                         <Text className='text-zinc-400'>Id do restaurante: {restaurantId}</Text>
+                        {/* DETALHES DO RESTAURANTE */}
                         {restaurant ? (
                             <View style={{ marginTop: 16 }}>
-                                <Text className='text-zinc-100 text-xs'>Vendidos por: {restaurant.name}</Text>
+                                <Text className='text-zinc-100 text-xs'>Vendido por: {restaurant.name}</Text>
+                                <Text className='text-zinc-100 text-xs'>id do restaurante: {restaurant.id}</Text>
                             </View>
+                            // <Image
+                            //     source={{ uri: restaurant.image}}
+                            //     className='w-20 h-20 rounded-full'
+                            // />
                         ) : (
                             <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
                         )}

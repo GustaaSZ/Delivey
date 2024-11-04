@@ -21,7 +21,7 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                     image: food.image,
                     time: food.time,
                     ingredientes: food.ingredientes,
-                    restaurant: food.restaurantId
+                    restaurantId: food.restaurantId,
                 } 
             })} 
         >
