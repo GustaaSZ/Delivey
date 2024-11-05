@@ -107,7 +107,9 @@
       "delivery": 2.99,
       "rating": 4.9,
       "image": "https://imgur.com/lhpVU7w.png",
-      "restaurantId": "7"
+      "restaurantId": "7",
+      "ingredientes": "Picanha Black Angus (300g) Picanha da raça Angus, acompanhada de vinagrete, chimichurri, farofa amarela, mandioca cozida ze arroz biro biro."
+      
     },
     { 
       "id": "4", 
@@ -117,7 +119,8 @@
       "delivery": 7.99,
       "rating": 5.0,
       "image": "https://imgur.com/TYJjN1m.png",
-      "restaurantId": "7"
+      "restaurantId": "7",
+      "ingredientes": "18 camarões empanados e recheados com catupiry, sobre um cremoso arroz de moqueca com camarõees e coentro, coberto com batata palha. Acompanha farofa de panko com bacon e alhoporó."
     },
     { 
       "id": "5", 
@@ -127,7 +130,8 @@
       "delivery": 4.99,
       "rating": 4.5,
       "image": "https://imgur.com/UFRMRI0.png",
-      "restaurantId": "2"
+      "restaurantId": "2",
+      "ingredientes": "Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim."
     },
     { 
       "id": "6", 
@@ -137,7 +141,8 @@
       "delivery": 5.99,
       "rating": 5.0,
       "image": "https://imgur.com/QTP9g3J.png",
-      "restaurantId": "10"
+      "restaurantId": "10",
+      "ingredientes": "Massa de fermentação de longa, Molho de tomate Pelatti, muçarela, Calabresa acebolada."
     },
     { 
       "id": "7", 
@@ -147,7 +152,8 @@
       "delivery": 5.99,
       "rating": 4.9,
       "image": "https://imgur.com/ukyFp6B.png",
-      "restaurantId": "10"
+      "restaurantId": "10",
+      "ingredientes": "Massa de longa fermentação ,fina camada de muçarela chocolate ao leite + pedaços de morango"
     },
     { 
       "id": "8", 
@@ -157,7 +163,8 @@
       "delivery": 2.99,
       "rating": 4.5,
       "image": "https://imgur.com/TP245Dn.png",
-      "restaurantId": "12"
+      "restaurantId": "12",
+      "ingredientes": "Açaí oakberry + aveia + leite ninho + morango."
     }
   ]
 }
