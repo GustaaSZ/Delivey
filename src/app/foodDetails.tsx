@@ -17,7 +17,7 @@ export default function FoodDetails() {
     const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
     // Verifique se image é uma string
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
-    const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string }  | null>(null);
+    const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
 
     useEffect(() => {
         // Função anônima
@@ -104,6 +104,18 @@ export default function FoodDetails() {
                                     source={{ uri: restaurant.image }}
                                     // className='w-20 h-20 rounded-full'
                                     style={{ width: 100, height: 100, borderRadius: 50 }}
+                                />
+                                <Text className='text-zinc-100 text-xl mt-1'>Mais perto de sua localização Atual:</Text>
+                                <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
+                                <Image
+                                    source={{ uri: restaurant.imageLocal }}
+                                    style={{
+                                        width: '100%',
+                                        height: 180,  // Defina a altura que você deseja para a imagem de fundo
+                                        justifyContent: 'center',
+                                        paddingTop: statusBarHeight + 15,
+                                        borderRadius: 25
+                                    }}
                                 />
                             </View>
                         ) : (
