@@ -3,62 +3,75 @@
     { 
       "id": "1", 
       "name": "Jeronimo", 
-      "image": "https://imgur.com/gukOjmT.png"
+      "image": "https://imgur.com/gukOjmT.png",
+      "imageLocal": "https://imgur.com/krgQgXq.png"
     },
     { 
       "id": "2", 
       "name": "McDonald's", 
-      "image": "https://i.imgur.com/su4iB3p.png"
+      "image": "https://i.imgur.com/su4iB3p.png",
+      "imageLocal": "https://imgur.com/5a7NI7t.png"
+      
     },
     { 
       "id": "3", 
       "name": "Outback", 
-      "image": "https://imgur.com/gaGNAq8.png"
+      "image": "https://imgur.com/gaGNAq8.png",
+      "imageLocal": "https://imgur.com/wy4oYIS.png"
     },
     { 
       "id": "4", 
       "name": "Sushiloko", 
-      "image": "https://imgur.com/pKtOYNC.png"
+      "image": "https://imgur.com/pKtOYNC.png",
+      "imageLocal": "https://imgur.com/YY3Yvgl.png"
     },
     { 
       "id": "5", 
       "name": "KFC", 
-      "image": "https://i.imgur.com/sZ1Jye3.png"
+      "image": "https://i.imgur.com/sZ1Jye3.png",
+      "imageLocal": "https://imgur.com/FOvlz9o.png"
     },
     { 
       "id": "6", 
       "name": "La Brasa", 
-      "image": "https://imgur.com/9naUERj.png"
+      "image": "https://imgur.com/9naUERj.png",
+      "imageLocal": "https://imgur.com/tgX7Rdk.png"
     },
     { 
       "id": "7", 
       "name": "Coco Bambu", 
-      "image": "https://imgur.com/Zv8hozc.png"
+      "image": "https://imgur.com/Zv8hozc.png",
+      "imageLocal": "https://imgur.com/1o0SUbZ.png"
     },
     { 
       "id": "8", 
       "name": "Buger King", 
-      "image": "https://imgur.com/eh6AWMu.png"
+      "image": "https://imgur.com/eh6AWMu.png",
+      "imageLocal": "https://imgur.com/R0skijX.png"
     },
     { 
       "id": "9", 
       "name": "Magero Burger", 
-      "image": "https://imgur.com/XTO2t5U.png"
+      "image": "https://imgur.com/XTO2t5U.png",
+      "imageLocal": "https://imgur.com/ZebCW1E.png"
     },
     { 
       "id": "10", 
       "name": "Pizzaria Cesár", 
-      "image": "https://imgur.com/ECAvw8u.png"
+      "image": "https://imgur.com/ECAvw8u.png",
+      "imageLocal": "https://imgur.com/tHtEJxC.png"
     },
     { 
       "id": "11", 
       "name": "Giraffas", 
-      "image": "https://imgur.com/XYmljrt.png"
+      "image": "https://imgur.com/XYmljrt.png",
+      "imageLocal": "https://imgur.com/ozhcuBX.png"
     },
     { 
       "id": "12", 
       "name": "Oakberry", 
-      "image": "https://imgur.com/FriNrnO.png"
+      "image": "https://imgur.com/FriNrnO.png",
+      "imageLocal": "https://imgur.com/Fru3jtu.png"
     }
   ],
   "foods": [
@@ -76,13 +89,14 @@
     },
     { 
       "id": "2", 
-      "name": "La brasa Extreme", 
-      "price": 64.90,
-      "time": "50-80 min",
+      "name": "La brasa Combo 3", 
+      "price": 49.90,
+      "time": "30-40 min",
       "delivery": 5.99,
       "rating": 4.9,
-      "image": "https://imgur.com/XwPUcB3.png",
-      "restaurantId": "6"
+      "image": "https://imgur.com/8hHJl5Z.png",
+      "restaurantId": "6",
+      "ingredientes": "Onion ring + Batata + Refri + Molho da casa."
 
     },
     { 
