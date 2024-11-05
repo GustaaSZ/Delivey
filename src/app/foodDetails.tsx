@@ -76,64 +76,64 @@ export default function FoodDetails() {
                 </ImageBackground>
             </View>
                
-                {/* Detalhes do alimento abaixo da imagem */}
-                <ScrollView 
-                    style={{ paddingHorizontal: 10, paddingVertical: 16}}
-                    className="bg-zinc-900 text-zinc-300"
-                    showsVerticalScrollIndicator={false}
-                >
-                    <Section 
-                        name= {`${name}`}
-                        size="text-3xl"
-                        label="+"
-                        action={ () => console.log("Clicou no veja mais")}
-                    />
-                    <View className='px-4'>
-                        <Text className='text-zinc-400 text-lg'>{ingredientes}</Text>
-                        <Text className='text-zinc-300 text-lg' style={{marginTop: 15}}>Preço: R$ {price}</Text>
-                    </View>
+            {/* Detalhes do alimento abaixo da imagem */}
+            <ScrollView 
+                style={{ paddingHorizontal: 10, paddingVertical: 16}}
+                className="bg-zinc-900 text-zinc-300"
+                showsVerticalScrollIndicator={false}
+            >
+                <Section 
+                    name= {`${name}`}
+                    size="text-3xl"
+                    label="+"
+                    action={ () => console.log("Clicou no veja mais")}
+                />
+                <View className='px-4'>
+                    <Text className='text-zinc-400 text-lg'>{ingredientes}</Text>
+                    <Text className='text-zinc-300 text-lg' style={{marginTop: 15}}>Preço: R$ {price}</Text>
+                </View>
 
-                    {/* DETALHES DO RESTAURANTE */}
-                    {restaurant ? (
+                {/* DETALHES DO RESTAURANTE */}
+                {restaurant ? (
 
-                        <View>
-                            <View className='' style={{ }}>
-                                <Section 
-                                    name={`Vendido por:  ${restaurant.name}`}
-                                    size="text-xl"
-                                    label=""
-                                    action={() => console.log("Clicou no veja mais")}
+                    <View>
+                        
+                        <Section 
+                            name={`Vendido por:  ${restaurant.name}`}
+                            size="text-xl"
+                            label=""
+                            action={() => console.log("Clicou no veja mais")}
+                        />
+                        
+                        <View className='px-4'>
+                            {restaurant.image && (
+                                <Image
+                                    source={{ uri: restaurant.image }}
+                                    style={{ width: 70, height: 70, borderRadius: 50 }}
                                 />
-                            </View>
-                            <View className='px-4'>
-                                {restaurant.image && (
-                                    <Image
-                                        source={{ uri: restaurant.image }}
-                                        style={{ width: 70, height: 70, borderRadius: 50 }}
-                                    />
-                                )}
-                            </View>
-                            
-                            <View className='px-4'>
-                                <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
-                                <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
-                                {restaurant.imageLocal && (
-                                    <Image
-                                        source={{ uri: restaurant.imageLocal }}
-                                        style={{
-                                            width: '100%',
-                                            height: 180,
-                                            borderRadius: 25,
-                                            marginTop: 20
-                                        }}
-                                    />
-                                )}
-                            </View>
+                            )}
                         </View>
-                    ) : (
-                        <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
-                    )}
-                </ScrollView>
+                        
+                        <View className='px-4'>
+                            <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
+                            <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
+                            {restaurant.imageLocal && (
+                                <Image
+                                    source={{ uri: restaurant.imageLocal }}
+                                    style={{
+                                        width: '100%',
+                                        height: 180,
+                                        borderRadius: 25,
+                                        marginTop: 20
+                                    }}
+                                />
+                            )}
+                        </View>
+                    </View>
+                ) : (
+                    <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
+                )}
+            </ScrollView>
         </View>
     );
 }
