@@ -93,49 +93,46 @@ export default function FoodDetails() {
                         <Text className='text-zinc-300 text-lg' style={{marginTop: 15}}>Preço: R$ {price}</Text>
                     </View>
 
-                        {/* DETALHES DO RESTAURANTE */}
-                        {restaurant ? (
-    
-                            <View>
-                               <View className='' style={{ }}>
-                                    <Section 
-                                        name={`Vendido por:  ${restaurant.name}`}
-                                        size="text-xl"
-                                        label=""
-                                        action={() => console.log("Clicou no veja mais")}
-                                    />
-                                </View>
-                               <View className='px-4'>
-                                    {restaurant.image && (
-                                        <Image
-                                            source={{ uri: restaurant.image }}
-                                            style={{ width: 70, height: 70, borderRadius: 50 }}
-                                        />
-                                    )}
-                                </View>
-                                
-                                <View className='px-4'>
-                                    <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
-                                    <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
-                                    {restaurant.imageLocal && (
-                                        <Image
-                                            source={{ uri: restaurant.imageLocal }}
-                                            style={{
-                                                width: '100%',
-                                                height: 180,
-                                                borderRadius: 25,
-                                                marginTop: 20
-                                            }}
-                                        />
-                                    )}
-                                </View>
-                            </View>
-                        ) : (
-                            <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
-                        )}
-                        
-                    {/* </View> */}
+                    {/* DETALHES DO RESTAURANTE */}
+                    {restaurant ? (
 
+                        <View>
+                            <View className='' style={{ }}>
+                                <Section 
+                                    name={`Vendido por:  ${restaurant.name}`}
+                                    size="text-xl"
+                                    label=""
+                                    action={() => console.log("Clicou no veja mais")}
+                                />
+                            </View>
+                            <View className='px-4'>
+                                {restaurant.image && (
+                                    <Image
+                                        source={{ uri: restaurant.image }}
+                                        style={{ width: 70, height: 70, borderRadius: 50 }}
+                                    />
+                                )}
+                            </View>
+                            
+                            <View className='px-4'>
+                                <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
+                                <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
+                                {restaurant.imageLocal && (
+                                    <Image
+                                        source={{ uri: restaurant.imageLocal }}
+                                        style={{
+                                            width: '100%',
+                                            height: 180,
+                                            borderRadius: 25,
+                                            marginTop: 20
+                                        }}
+                                    />
+                                )}
+                            </View>
+                        </View>
+                    ) : (
+                        <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
+                    )}
                 </ScrollView>
         </View>
     );
