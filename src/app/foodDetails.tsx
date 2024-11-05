@@ -6,6 +6,7 @@ import Constants from 'expo-constants';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Section } from '../components/section';
 import { useEffect, useState } from 'react';
+import { Feather } from '@expo/vector-icons';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
@@ -133,6 +134,17 @@ export default function FoodDetails() {
                 ) : (
                     <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
                 )}
+
+                <View className='mt-10 justify-center items-center'>
+                    <Pressable 
+                        className='w-14 h-14 bg-zinc-800/85 flex items-center justify-center rounded-full'
+                        onPress={() => console.log(`Adicionou no carrinho o ${name}`)}
+                    >
+                        <Feather name='shopping-bag' size={24} color='#84cc16'/>
+                    </Pressable>
+                    <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
+                    <View className='mt-10'></View>
+                </View>
             </ScrollView>
         </View>
     );
