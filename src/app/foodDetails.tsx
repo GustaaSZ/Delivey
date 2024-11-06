@@ -1,5 +1,5 @@
 import { router, useRouter } from 'expo-router';
-import { View, Text, Pressable, ImageBackground, Image } from 'react-native';
+import { View, Text, Pressable, ImageBackground, Image, Alert } from 'react-native';
 import BackButton from '../components/backButton';
 import { useLocalSearchParams } from 'expo-router';
 import Constants from 'expo-constants';
@@ -7,17 +7,49 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Section } from '../components/section';
 import { useEffect, useState } from 'react';
 import { Feather } from '@expo/vector-icons';
+import { useCart } from '../components/context';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
 
 export default function FoodDetails() {
     
+    
     // Acessa os atributos do alimento
     const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
-    // Verifique se image é uma string
+
+    // Verificando se os atribbutos (name, id, image) são uma string e price um number
+    const itemId = Array.isArray(id) ? id[0] : id;
+    const itemName = Array.isArray(name) ? name[0] : name;
+    const itemPrice = Array.isArray(price) ? parseFloat(price[0]) : Number(price);
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
+
     const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
+    const { addToCart } = useCart(); // Usa o hook do carrinho
+
+    // Função de alerta personalizado
+    const AlertFunction = (name: string) => {
+        Alert.alert(
+            // Title
+            `${name} Adicionado ao Carrinho!`,
+            // Body
+            '',
+            [
+                {
+                    text: 'Ok',
+                    onPress: () => {
+                        console.log('Ok pressionado');
+                    },
+                },
+                {
+                    text: 'Ir para carrinho',
+                    onPress: () => {
+                        router.push('/shoppingCart');
+                    }
+                },
+            ]
+        )
+    }
 
     useEffect(() => {
         // Função anônima
@@ -55,6 +87,14 @@ export default function FoodDetails() {
             fetchRestaurantDetails();
         }
     }, [restaurantId]);
+
+    const handleAddToCart = () => {
+        addToCart({ id: itemId, name: itemName, price: itemPrice, quantity: 1, image: imageUri });
+        console.log(`Adicionou no carrinho o ${itemName}`);
+
+        // Alerta ao ser pressionado
+        AlertFunction(itemName);
+    };
 
     return (
         <View 
@@ -138,7 +178,7 @@ export default function FoodDetails() {
                 <View className='mt-10 justify-center items-center'>
                     <Pressable 
                         className='w-14 h-14 bg-zinc-800/85 flex items-center justify-center rounded-full'
-                        onPress={() => console.log(`Adicionou no carrinho o ${name}`)}
+                        onPress={handleAddToCart}
                     >
                         <Feather name='shopping-bag' size={24} color='#84cc16'/>
                     </Pressable>
