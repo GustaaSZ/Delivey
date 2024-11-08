@@ -23,6 +23,7 @@ export default function FoodDetails() {
     const itemName = Array.isArray(name) ? name[0] : name;
     const itemPrice = Array.isArray(price) ? parseFloat(price[0]) : Number(price);
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
+    const [quantity, setQuantity] = useState(1)
 
     const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
     const { addToCart } = useCart(); // Usa o hook do carrinho
@@ -88,13 +89,23 @@ export default function FoodDetails() {
         }
     }, [restaurantId]);
 
-    const handleAddToCart = () => {
-        addToCart({ id: itemId, name: itemName, price: itemPrice, quantity: 1, image: imageUri });
+    const handleAddToCart = (quantity: number) => {
+        addToCart({ id: itemId, name: itemName, price: itemPrice, quantity: quantity, image: imageUri });
         console.log(`Adicionou no carrinho o ${itemName}`);
 
         // Alerta ao ser pressionado
         AlertFunction(itemName);
     };
+    
+    const increaseQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity + 1)
+        console.log(quantity)
+    };
+    const decreaseQuantity = () => {
+        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+        console.log(quantity)
+    };
+
 
     return (
         <View 
@@ -176,14 +187,32 @@ export default function FoodDetails() {
                 )}
 
                 <View className='mt-10 justify-center items-center'>
-                    <Pressable 
-                        className='w-14 h-14 bg-zinc-800/85 flex items-center justify-center rounded-full'
-                        onPress={handleAddToCart}
-                    >
-                        <Feather name='shopping-bag' size={24} color='#84cc16'/>
-                    </Pressable>
-                    <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
-                    <View className='mt-10'></View>
+                    {/* <Text className='text-white text-xl'>{quantity}</Text> */}
+                    <View className='flex flex-row justify-between'>
+                        <Pressable 
+                            className='w-10 h-10 bg-red-600/60 flex items-center justify-center rounded-full mx-3'
+                            onPress={ decreaseQuantity }
+                        >
+                            <Feather name='minus' size={22} color='#f4f4f5'/>
+                        </Pressable>
+                        
+                        <Pressable 
+                            className='w-14 h-14 bg-zinc-800/85 flex items-center justify-center rounded-full mx-3'
+                            onPress={() => handleAddToCart(quantity)}
+                        >
+                            <Feather name='shopping-bag' size={24} color='#84cc16'/>
+                        </Pressable>
+                        <Pressable 
+                            className='w-10 h-10 bg-green-600/60 flex items-center justify-center rounded-full mx-3'
+                            onPress={ increaseQuantity  }
+                        >
+                            <Feather name='plus' size={22} color='#f4f4f5'/>
+                        </Pressable>
+                    </View>
+                        <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
+                        <View className='mt-2'></View>
+                        <Text className='text-zinc-200 text-xl'>{quantity}</Text>
+                        <View className='mt-10'></View>
                 </View>
             </ScrollView>
         </View>
