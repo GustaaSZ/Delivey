@@ -4,6 +4,7 @@ import Constants from 'expo-constants'
 import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper";
 import { useCart } from '../components/context';
+import { Ionicons } from "@expo/vector-icons";
 
 // constante pra definir uma altura padrão e responsiva na view
 const statusBarHeight = Constants.statusBarHeight;
@@ -31,13 +32,16 @@ export default function ShoppingCart() {
               <Text className="text-zinc-400 mt-10">Seu carrinho está vazio.</Text>
             ) : (
               cartItems.map((item, index) => (
-                <View key={index} className="mt-10">
+                <View key={index} className="mt-10 relative">
                   <Text className="text-zinc-300 text-lg">{item.name}</Text>
                   <Text className="text-zinc-400">Preço: R$ {item.price}</Text>
+                  {/* <Text className="text-zinc-300 text-lg">Quantidade: {item.quantity}</Text> */}
                   <Image source={{ uri: item.image }} className='w-72 h-36 rounded-xl mt-2'/>
-                  
+
+                  <View style={{ left: 200,  }} className='flex flex-row bg-red-600/60 rounded-full w-10 h-10 absolute top-1 px-2 py-1 items-center justify-center'>
+                    <Text className="text-zinc-300 text-xl">{item.quantity}</Text>
+                  </View>
                 </View>
-                // <View className="mt-10"></View>
               ))
               
             )}
