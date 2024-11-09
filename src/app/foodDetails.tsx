@@ -26,7 +26,7 @@ export default function FoodDetails() {
     const [quantity, setQuantity] = useState(1)
 
     const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
-    const { addToCart } = useCart(); // Usa o hook do carrinho
+    const { addToCart } = useCart(); // Uso do hook do carrinho 
 
     // Função de alerta personalizado
     const AlertFunction = (name: string) => {
@@ -90,11 +90,18 @@ export default function FoodDetails() {
     }, [restaurantId]);
 
     const handleAddToCart = (quantity: number) => {
-        addToCart({ id: itemId, name: itemName, price: itemPrice, quantity: quantity, image: imageUri });
+        
+        const itemToAdd = {
+            id: itemId,  
+            name: itemName, 
+            price: itemPrice,
+            quantity,  // A quantidade: variável a atualizar
+            image: imageUri
+        };
+        // Adiciona o item ao carrinho
+        addToCart(itemToAdd);
         console.log(`Adicionou no carrinho o ${itemName}`);
-
-        // Alerta ao ser pressionado
-        AlertFunction(itemName);
+        AlertFunction(itemName); // Alerta ao ser pressionado
     };
     
     const increaseQuantity = () => {
@@ -218,4 +225,3 @@ export default function FoodDetails() {
         </View>
     );
 }
-
