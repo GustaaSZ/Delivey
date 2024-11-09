@@ -20,7 +20,7 @@ export function Header() {
     </View>
 
     <Pressable className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center'>
-        <Ionicons name="notifications-outline" size={25} color="#a1a1aa"/>
+        <Feather name="settings" size={20} color="#a1a1aa"/>
     </Pressable>
    </View>
   );

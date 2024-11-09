@@ -1,9 +1,7 @@
 import { Text, View, ScrollView, FlatList } from "react-native";
 import { Header } from "../components/header";
 import Constants from 'expo-constants'
-import { Banner } from "../components/banner";
 import { Search } from "../components/search";
-import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper";
 import { useState, useEffect } from "react";
 import { ItemFood2} from "../components/trending/food/index copy"; 

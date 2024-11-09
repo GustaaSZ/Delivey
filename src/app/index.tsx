@@ -2,7 +2,6 @@ import { Text, View, ScrollView, } from "react-native";
 import { Header } from "../components/header";
 import Constants from 'expo-constants'
 import { Banner } from "../components/banner";
-import { Search } from "../components/search";
 import { Section } from "../components/section";
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper"
 import { TrendingFoods } from "../components/trending";
