@@ -1,14 +1,17 @@
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, ScrollView, Image, Pressable } from "react-native";
 import { Header } from "../components/header";
 import Constants from 'expo-constants'
 import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper";
 import { useCart } from '../components/context';
+import { Feather } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 // constante pra definir uma altura padrão e responsiva na view
 const statusBarHeight = Constants.statusBarHeight;
 
 export default function ShoppingCart() {
   const { cartItems } = useCart();
+  const router = useRouter()
 
   // calculo do valor total dos itens adicionados ao carrinho
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -46,6 +49,14 @@ export default function ShoppingCart() {
             <View style={{backgroundColor: '#4d7c0f', opacity: 90}} className="flex w-48 h-10 items-center justify-center rounded-xl mt-10">
               <Text className='text-zinc-50 font-semibold'>   Total: R$ {total.toFixed(2)}   </Text>
             </View>
+            
+            <Pressable 
+                style={{backgroundColor: '#facc15'}}
+                className='w-14 h-14 mt-10 flex items-center justify-center rounded-full mx-3'
+                onPress={ () => router.navigate('/payment') }
+            >
+                <Feather name='credit-card' size={22} color='#0a0a0a'/>
+            </Pressable>
 
             <View className="mt-10"></View>
               

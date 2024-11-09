@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import FoodDetails from './foodDetails';
+import Payment  from './payment';
 
 const Stack = createNativeStackNavigator();
 
@@ -9,6 +10,10 @@ export default function StackRoutes() {
       <Stack.Screen
         name='foodDetails'
         component={FoodDetails}
+      />
+      <Stack.Screen
+        name='payment'
+        component={Payment}
       />
    </Stack.Navigator>
   );
