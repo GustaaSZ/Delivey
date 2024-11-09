@@ -1,56 +1,35 @@
-import { router, useRouter } from 'expo-router';
-import { View, Text, Pressable, ImageBackground, Image, Alert } from 'react-native';
-import BackButton from '../components/backButton';
 import { useLocalSearchParams } from 'expo-router';
+import { View, Text, Pressable, ImageBackground, Image, Modal } from 'react-native';
+import { useEffect, useState } from 'react';
+import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Section } from '../components/section';
-import { useEffect, useState } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { useCart } from '../components/context';
+import CustomModal  from '../components/moldal';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
 
 export default function FoodDetails() {
-    
-    
+
     // Acessa os atributos do alimento
     const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
 
     // Verificando se os atribbutos (name, id, image) são uma string e price um number
     const itemId = Array.isArray(id) ? id[0] : id;
     const itemName = Array.isArray(name) ? name[0] : name;
-    const itemPrice = Array.isArray(price) ? parseFloat(price[0]) : Number(price);
     const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
-    const [quantity, setQuantity] = useState(1)
 
+    const itemPrice = Array.isArray(price) ? parseFloat(price[0]) : Number(price);
     const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
-    const { addToCart } = useCart(); // Uso do hook do carrinho 
 
-    // Função de alerta personalizado
-    const AlertFunction = (name: string) => {
-        Alert.alert(
-            // Title
-            `${name} Adicionado ao Carrinho!`,
-            // Body
-            '',
-            [
-                {
-                    text: 'Ok',
-                    onPress: () => {
-                        console.log('Ok pressionado');
-                    },
-                },
-                {
-                    text: 'Ir para carrinho',
-                    onPress: () => {
-                        router.push('/shoppingCart');
-                    }
-                },
-            ]
-        )
-    }
+    const [quantity, setQuantity] = useState(1)
+    const [showModal, setShowModal] = useState(false);
+
+    // Funções que incrementam e decrementam a quantidade do itemFood
+    const increaseQuantity = () => setQuantity((prev) => prev + 1);
+    const decreaseQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
 
     useEffect(() => {
         // Função anônima
@@ -89,36 +68,11 @@ export default function FoodDetails() {
         }
     }, [restaurantId]);
 
-    const handleAddToCart = (quantity: number) => {
-        
-        const itemToAdd = {
-            id: itemId,  
-            name: itemName, 
-            price: itemPrice,
-            quantity,  // A quantidade: variável a atualizar
-            image: imageUri
-        };
-        // Adiciona o item ao carrinho
-        addToCart(itemToAdd);
-        console.log(`Adicionou no carrinho o ${itemName}`);
-        AlertFunction(itemName); // Alerta ao ser pressionado
-    };
-    
-    const increaseQuantity = () => {
-        setQuantity(prevQuantity => prevQuantity + 1)
-        console.log(quantity)
-    };
-    const decreaseQuantity = () => {
-        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-        console.log(quantity)
-    };
-
-
     return (
         <View 
             style={{ flex: 1, backgroundColor: '#18181b' }} 
             className="bg-zinc-900 text-zinc-300"
-        >
+        >   
             <View className="w-full px-0 bg-zinc-900" >
                 <ImageBackground
                     source={{ uri: imageUri }}
@@ -194,27 +148,42 @@ export default function FoodDetails() {
                 )}
 
                 <View className='mt-10 justify-center items-center'>
-                    {/* <Text className='text-white text-xl'>{quantity}</Text> */}
+                    {/* CustomModal Controlado */}
+                    <Modal visible={showModal} transparent={true} animationType='slide' onRequestClose={() => setShowModal(false)}>
+                        <CustomModal //Passando os valores que CustomModal espera
+                            showModal={showModal} setShowModal={setShowModal} quantity={quantity} 
+                            id={itemId}
+                            name={itemName}
+                            price={itemPrice}
+                            image={imageUri}
+                        />
+                    </Modal>
                     <View className='flex flex-row justify-between'>
+                        
+                        {/* Botão de diminuir a quantidade  */}
                         <Pressable 
                             className='w-10 h-10 bg-red-600/60 flex items-center justify-center rounded-full mx-3'
                             onPress={ decreaseQuantity }
                         >
                             <Feather name='minus' size={22} color='#f4f4f5'/>
                         </Pressable>
-                        
+
+                        {/* Botão de Adicionar no carrinho -> Abre Modal  */}
                         <Pressable 
                             className='w-14 h-14 bg-zinc-800/85 flex items-center justify-center rounded-full mx-3'
-                            onPress={() => handleAddToCart(quantity)}
+                            onPress={() => setShowModal(true)}
                         >
                             <Feather name='shopping-bag' size={24} color='#84cc16'/>
                         </Pressable>
+
+                        {/* Botão de aumentar a quantidade  */}
                         <Pressable 
                             className='w-10 h-10 bg-green-600/60 flex items-center justify-center rounded-full mx-3'
                             onPress={ increaseQuantity  }
                         >
                             <Feather name='plus' size={22} color='#f4f4f5'/>
                         </Pressable>
+
                     </View>
                         <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
                         <View className='mt-2'></View>
