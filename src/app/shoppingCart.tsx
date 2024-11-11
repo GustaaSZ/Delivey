@@ -51,7 +51,7 @@ export default function ShoppingCart() {
             </View>
             
             <Pressable 
-                style={{backgroundColor: '#facc15'}}
+                style={{backgroundColor: '#fcd34d'}}
                 className='w-14 h-14 mt-10 flex items-center justify-center rounded-full mx-3'
                 onPress={ () => router.navigate('/payment') }
             >
