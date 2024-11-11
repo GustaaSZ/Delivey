@@ -4,9 +4,8 @@ import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
 import { useState } from 'react';
 import { Section } from '../components/section';
-import { router } from 'expo-router';
 
-export default function Payment() {
+export default function PaymentCard() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
@@ -22,14 +21,14 @@ export default function Payment() {
     <View className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
-                <BackButton rota='/shoppingCart'/>
+                <BackButton rota='/payment'/>
             </View>
             <View className='flex items-center justify-center'>
                 <Text className='text-zinc-200 text-4xl'> Página de pagamento</Text>
             </View>
             <View className='px-6'>
                 <Section 
-                    name="Insira seus dados"
+                    name="Insira os dados do cartão"
                     size="text-xl"
                     label=""
                     action={ () => console.log("Clicou no veja mais")}
@@ -120,7 +119,7 @@ export default function Payment() {
         <Pressable 
             style={{backgroundColor: '#fcd34d'}}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            onPress={ () => router.navigate('/paymentCard') }
+            // onPress={ () => router.navigate('/payment') }
             >   
             <Text className='text-black font-bold text-xl'>Próximo</Text>
         </Pressable>
