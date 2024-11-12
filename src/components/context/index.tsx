@@ -12,6 +12,7 @@ interface CartItem {
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
+  getTotalPrice: () => number;  // Função para calcular o valot total de itens no carrinho
 }
 
 // Defina o tipo para as props do CartProvider, incluindo children
@@ -51,8 +52,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, getTotalPrice }}>
       {children}
     </CartContext.Provider>
   );
