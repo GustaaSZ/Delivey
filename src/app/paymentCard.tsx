@@ -4,6 +4,7 @@ import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
 import { Section } from '../components/section';
 import { BannerCard } from '../components/bannerCard';
+import { router } from 'expo-router';
 
 export default function PaymentCard() {
     // constante pra definir uma altura padrão e responsiva na view
@@ -106,10 +107,9 @@ export default function PaymentCard() {
 
         <View className='items-center justify-center mt-10 px-10'>
         <Pressable 
-            style={{backgroundColor: '#fcd34d'}}
+            style={{ backgroundColor: '#fcd34d' }}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            // onPress={ () => router.navigate('/payment') }
-            onPress={ hanfdlePayment }
+            onPress={  () => router.navigate('/paymentFinaly') }
             >   
             <Text className='text-black font-bold text-xl'>Próximo</Text>
         </Pressable>
