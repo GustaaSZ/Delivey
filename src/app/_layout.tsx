@@ -98,6 +98,12 @@ export default function RootLayout() {
               drawerItemStyle: { display: 'none' } // ocultando do drawer
             }}
           />
+          <Drawer.Screen 
+            name="paymentFinaly" 
+            options={{ 
+              drawerItemStyle: { display: 'none' } // ocultando do drawer
+            }}
+          />
         </Drawer>
       </CartProvider>
     </GestureHandlerRootView>
