@@ -15,6 +15,14 @@ export default function PaymentCard() {
     const [validity, setValidity] = React.useState('');
     const [cvv, setCvv] = React.useState('');
 
+    // Função pra pegar o estado do inputs
+    const hanfdlePayment = () => {
+        console.log('Nome do cartão: ', name);
+        console.log('Numero do cartão: ',number );
+        console.log('Validade: ', validity);
+        console.log('CVV: ', cvv);
+    }
+
  return (
     <View className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
@@ -36,7 +44,7 @@ export default function PaymentCard() {
 
         {/* VIEW DOS INPUTS */}
         <View className='px-6 gap-10'>
-            <View style={{ paddingLeft: 50, marginBottom: -30}}>
+            <View style={{marginBottom: -30}} className='px-4'>
                 <BannerCard/> 
             </View>
             
@@ -45,7 +53,7 @@ export default function PaymentCard() {
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setName} 
                 value={name}
-                keyboardType='number-pad'
+                inputMode='text'
                 placeholder='Nome do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
@@ -101,6 +109,7 @@ export default function PaymentCard() {
             style={{backgroundColor: '#fcd34d'}}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
             // onPress={ () => router.navigate('/payment') }
+            onPress={ hanfdlePayment }
             >   
             <Text className='text-black font-bold text-xl'>Próximo</Text>
         </Pressable>
