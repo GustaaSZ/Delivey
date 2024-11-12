@@ -5,16 +5,17 @@ import Constants from 'expo-constants';
 import { useState } from 'react';
 import { Section } from '../components/section';
 import { router } from 'expo-router';
+import { usePayment } from '../components/contextCard';
 
 export default function Payment() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
     // Variaveis para ler a entrada dos usuários
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [number, setNumber] = React.useState('');
-    const [address, setAddress] = React.useState('');
+    const {userName, setUserName} = usePayment();
+    const {userAddressEmail, setUserAddressEmail} = usePayment();
+    const {userPhone, setUserPhone} = usePayment();
+    const {userAddress, setUserAddress} = usePayment();
     const [complement, setComplement] = React.useState('');
     const [cep, setCep] = React.useState('');
 
@@ -44,8 +45,8 @@ export default function Payment() {
             {/* Nome */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setName} 
-                value={name}
+                onChangeText={setUserName} 
+                value={userName}
                 inputMode='text'
                 placeholder='Nome'
                 placeholderTextColor={'#a1a1aa'}
@@ -57,8 +58,8 @@ export default function Payment() {
             {/* E-mail */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setEmail} 
-                value={email}
+                onChangeText={setUserAddressEmail} 
+                value={userAddressEmail}
                 placeholder='Email'
                 keyboardType='email-address'
                 placeholderTextColor={'#a1a1aa'}
@@ -70,8 +71,8 @@ export default function Payment() {
             {/* Numero */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setNumber} 
-                value={number}
+                onChangeText={setUserPhone} 
+                value={userPhone}
                 keyboardType='phone-pad'
                 placeholder='Numero de telefone'
                 placeholderTextColor={'#a1a1aa'}
@@ -82,8 +83,8 @@ export default function Payment() {
             {/* Endereço */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setAddress} 
-                value={address}
+                onChangeText={setUserAddress} 
+                value={userAddress}
                 inputMode='text'
                 placeholder='Endereço'
                 placeholderTextColor={'#a1a1aa'}

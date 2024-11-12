@@ -5,29 +5,28 @@ import Constants from 'expo-constants';
 import { Section } from '../components/section';
 import { router } from 'expo-router';
 import { useCart } from '../components/context';
+import { usePayment } from '../components/contextCard';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PaymentFinaly() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
-    // Variaveis para ler a entrada dos usuários
-    const [name, setName] = React.useState('');
-    const [number, setNumber] = React.useState('');
-    const [validity, setValidity] = React.useState('');
-    const [cvv, setCvv] = React.useState('');
-
     const {cartItems, getTotalPrice} = useCart();
 
     // Função pra pegar o estado do inputs
-    const hanfdlePayment = () => {
-        console.log('Nome do cartão: ', name);
-        console.log('Numero do cartão: ',number );
-        console.log('Validade: ', validity);
-        console.log('CVV: ', cvv);
-    }
+    // const hanfdlePayment = () => {
+        
+    // }
+
+    const {userName} = usePayment();
+    const {userAddressEmail} = usePayment();
+    const {userPhone} = usePayment();
+    const {userAddress} = usePayment();
 
  return (
-    <View className='flex flex-1 bg-zinc-900'>
+    // <ScrollView></ScrollView>
+    <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
                 <BackButton rota='/paymentCard'/>
@@ -37,7 +36,7 @@ export default function PaymentFinaly() {
             </View>
             <View className='px-6'>
                 <Section 
-                    name="Dados da Compra"
+                    name="Dados do Usuário"
                     size="text-xl"
                     label=""
                     action={ () => console.log("Clicou no veja mais")}
@@ -49,61 +48,62 @@ export default function PaymentFinaly() {
         <View className='px-6 gap-10'>
            
             
-            {/* NOME DO CARTÃO  */}
+            {/* NOME DO USUÁRIO  */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setName} 
-                value={name}
+                value={userName}
                 inputMode='text'
-                placeholder='Nome do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
-                // editable
+                editable={false}
             >
             </TextInput>
 
-            {/* NUMERO DO CARTÃO */}
+            {/* E-MAIL DO USER */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setNumber} 
-                value={number}
-                keyboardType='number-pad'
-                placeholder='Número do Cartão'
+                value={userAddressEmail}
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
-                // editable
+                editable={false}
             >
             </TextInput>
 
-            <View className='flex flex-row justify-between'>
-                {/* VALIDADE */}
-                <TextInput 
-                    style={{width: 150}}
-                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                    onChangeText={setValidity} 
-                    value={validity}
-                    placeholder='Validade'
-                    inputMode='numeric'
-                    placeholderTextColor={'#a1a1aa'}
-                    underlineColorAndroid='transparent'
-                    // editable
-                >
-                </TextInput>
-
-                {/* CVV */}
-                <TextInput 
-                    style={{width: 100}}
-                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                    onChangeText={setCvv} 
-                    value={cvv}
-                    keyboardType='number-pad'
-                    placeholder='CVV'
-                    placeholderTextColor={'#a1a1aa'}
-                    underlineColorAndroid='transparent'
-                >
-                </TextInput>
-            </View>
+            {/* NUMERO DO USER */}
+            <TextInput 
+                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                value={userPhone}
+                placeholderTextColor={'#a1a1aa'}
+                underlineColorAndroid='transparent'
+                editable={false}
+            >
+            </TextInput>
+            {/* ENDERESSO DO USER */}
+            <TextInput 
+                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                value={userAddress}
+                placeholderTextColor={'#a1a1aa'}
+                underlineColorAndroid='transparent'
+                editable={true}
+            >
+            </TextInput>
         </View>
+        <View className='items-center justify-between'>
+            <Section 
+                name="Dados da Compra"
+                size="text-xl"
+                label=""
+                action={ () => console.log("Clicou no veja mais")}
+            />
+            {cartItems.map((item, index) => (
+                <View key={index} className=' border border-white 'style={{}}>
+                    <Text className='text-xl text-zinc-300'> {item.name} - R$ {item.price} </Text>
+                    <Text className='text-xl text-zinc-300' > Quantidade {item.quantity} </Text>
+                </View>
+            ))}
+            <Text className='text-xl text-zinc-300'> Total: R$ {getTotalPrice().toFixed(2)}</Text>
+        </View>
+        
 
         <View className='items-center justify-center mt-10 px-10'>
         <Pressable 
@@ -112,11 +112,11 @@ export default function PaymentFinaly() {
             // onPress={ () => router.navigate('/payment') }
             onPress={  () => router.navigate('/') }
             >   
-            <Text className='text-black font-bold text-xl'>Próximo</Text>
+            <Text className='text-black font-bold text-xl'>Confirmar Compra</Text>
         </Pressable>
 
         </View>
-    </View>
+    </ScrollView>
    
   );
 }
