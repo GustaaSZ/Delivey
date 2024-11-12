@@ -96,16 +96,16 @@ export default function PaymentFinaly() {
                 action={ () => console.log("Clicou no veja mais")}
             />
             {cartItems.map((item, index) => (
-                <View key={index} className=' border border-white 'style={{}}>
+                <View key={index} className=' border border-zinc-500 px-4 py-4 gap-2 my-4'style={{borderRadius: 10}}>
                     <Text className='text-xl text-zinc-300'> {item.name} - R$ {item.price} </Text>
                     <Text className='text-xl text-zinc-300' > Quantidade {item.quantity} </Text>
                 </View>
             ))}
-            <Text className='text-xl text-zinc-300'> Total: R$ {getTotalPrice().toFixed(2)}</Text>
+            <Text className='text-xl text-zinc-300 mt-7'> Total: R$ {getTotalPrice().toFixed(2)}</Text>
         </View>
         
 
-        <View className='items-center justify-center mt-10 px-10'>
+        <View className='items-center justify-center mt-5 px-10'>
         <Pressable 
             style={{ backgroundColor: '#fcd34d' }}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
@@ -114,6 +114,7 @@ export default function PaymentFinaly() {
             >   
             <Text className='text-black font-bold text-xl'>Confirmar Compra</Text>
         </Pressable>
+        <View className='mt-16'></View>
 
         </View>
     </ScrollView>
