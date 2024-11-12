@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, TextInput, Pressable } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
-import { useState } from 'react';
 import { Section } from '../components/section';
+import { BannerCard } from '../components/bannerCard';
 
 export default function PaymentCard() {
     // constante pra definir uma altura padrão e responsiva na view
@@ -11,11 +11,9 @@ export default function PaymentCard() {
 
     // Variaveis para ler a entrada dos usuários
     const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
     const [number, setNumber] = React.useState('');
-    const [address, setAddress] = React.useState('');
-    const [complement, setComplement] = React.useState('');
-    const [cep, setCep] = React.useState('');
+    const [validity, setValidity] = React.useState('');
+    const [cvv, setCvv] = React.useState('');
 
  return (
     <View className='flex flex-1 bg-zinc-900'>
@@ -28,91 +26,74 @@ export default function PaymentCard() {
             </View>
             <View className='px-6'>
                 <Section 
-                    name="Insira os dados do cartão"
+                    name="Dados do Cartão"
                     size="text-xl"
                     label=""
                     action={ () => console.log("Clicou no veja mais")}
                 />
-
             </View>
         </View>
 
         {/* VIEW DOS INPUTS */}
         <View className='px-6 gap-10'>
-
-            {/* Nome */}
+            <View style={{ paddingLeft: 50, marginBottom: -30}}>
+                <BannerCard/> 
+            </View>
+            
+            {/* NOME DO CARTÃO  */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setName} 
                 value={name}
-                inputMode='text'
-                placeholder='Nome'
+                keyboardType='number-pad'
+                placeholder='Nome do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 // editable
             >
             </TextInput>
 
-            {/* E-mail */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setEmail} 
-                value={email}
-                placeholder='Email'
-                keyboardType='email-address'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-                // editable
-            >
-            </TextInput>
-
-            {/* Numero */}
+            {/* NUMERO DO CARTÃO */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setNumber} 
                 value={number}
-                keyboardType='phone-pad'
-                placeholder='Numero de telefone'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-            >
-            </TextInput>
-
-            {/* Endereço */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setAddress} 
-                value={address}
-                inputMode='text'
-                placeholder='Endereço'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-            >
-            </TextInput>
-            
-            {/* Complemento */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setComplement} 
-                value={complement}
-                inputMode='text'
-                placeholder='Complemento'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-            >
-            </TextInput>
-
-            {/* CEP */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setCep} 
-                value={cep}
                 keyboardType='number-pad'
-                placeholder='CEP'
+                placeholder='Número do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
+                // editable
             >
             </TextInput>
+
+            <View className='flex flex-row justify-between'>
+                {/* VALIDADE */}
+                <TextInput 
+                    style={{width: 150}}
+                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                    onChangeText={setValidity} 
+                    value={validity}
+                    placeholder='Validade'
+                    inputMode='numeric'
+                    placeholderTextColor={'#a1a1aa'}
+                    underlineColorAndroid='transparent'
+                    // editable
+                >
+                </TextInput>
+
+                {/* CVV */}
+                <TextInput 
+                    style={{width: 100}}
+                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                    onChangeText={setCvv} 
+                    value={cvv}
+                    keyboardType='number-pad'
+                    placeholder='CVV'
+                    placeholderTextColor={'#a1a1aa'}
+                    underlineColorAndroid='transparent'
+                >
+                </TextInput>
+            </View>
         </View>
 
         <View className='items-center justify-center mt-10 px-10'>
