@@ -7,33 +7,37 @@ import { BannerCard } from '../components/bannerCard';
 import { router } from 'expo-router';
 import { TextInputMask } from 'react-native-masked-text';
 import { usePayment } from '../components/contextCard';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function PaymentCard() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
-    // Variaveis para ler a entrada dos usuários
+    // Variaveis para ler e guardar a entrada dos usuários. usePayment() -> definidas no contextCard
     const [name, setName] = React.useState('');
-    const {userCardNumber, setUserCardNumber} = usePayment()
-    const [number, setNumber] = React.useState('');
+    const {userCardNumber, setUserCardNumber} = usePayment();
     const [validity, setValidity] = React.useState('');
     const [cvv, setCvv] = React.useState('');
+    const [error, setError] = React.useState('');
 
-    // Função pra pegar o estado do inputs
-    const hanfdlePayment = () => {
-        console.log('Nome do cartão: ', name);
-        console.log('Numero do cartão: ',number );
-        console.log('Validade: ', validity);
-        console.log('CVV: ', cvv);
+    // Função para verificar os inputs e lançar um erro caso não estejam preenchidos
+    const hanfdleSubmitPayment = () => {
+        if(!name || !userCardNumber || ! validity || ! cvv){
+            setError('Atenção, Todos os campos são obrigatórios!');
+            return;
+        }
+        // Se passar, chama a função de navegar para outra tela
+        setError('');
+        router.navigate('/paymentFinaly');
     }
 
     // Função que insere maskara no CEP
     const insertMaskInValidityDate = (date: string) => {
-        return date.replace(/(\d{2})(\d)/, '$1/$2');
+        return date.replace(/(\d{2})(\d)/, '$1/$2'); // divide o bloco de caracteres em 2 -> a 1º parte ($1) / 2º parte ($2)
     };
 
  return (
-    <View className='flex flex-1 bg-zinc-900'>
+    <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
                 <BackButton rota='/payment'/>
@@ -121,16 +125,19 @@ export default function PaymentCard() {
         </View>
 
         <View className='items-center justify-center mt-10 px-10'>
-        <Pressable 
-            style={{ backgroundColor: '#fcd34d' }}
-            className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            onPress={  () => router.navigate('/paymentFinaly') }
-            >   
-            <Text className='text-black font-bold text-xl'>Próximo</Text>
-        </Pressable>
+            {error ? (
+                <Text style={{ color: '#dc2626', marginBottom: 6, fontSize: 13 }}>{error}</Text>
+            ) : null }
 
+            <Pressable 
+                style={{ backgroundColor: '#fcd34d' }}
+                className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
+                onPress={  hanfdleSubmitPayment }
+                >   
+                <Text className='text-black font-bold text-xl'>Próximo</Text>
+            </Pressable>
         </View>
-    </View>
+    </ScrollView>
    
   );
 }
