@@ -27,6 +27,11 @@ export default function PaymentCard() {
         console.log('CVV: ', cvv);
     }
 
+    // Função que insere maskara no CEP
+    const insertMaskInValidityDate = (date: string) => {
+        return date.replace(/(\d{2})(\d)/, '$1/$2');
+    };
+
  return (
     <View className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
@@ -74,6 +79,7 @@ export default function PaymentCard() {
                 }}
                 style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserCardNumber} 
+                maxLength={19} // limitando o tamanho para 19 pois com a maskara de cardNumber, terá espaço em 3 lugares, ou seja = 16 + 3 
                 value={userCardNumber}
                 keyboardType='number-pad'
                 placeholder='Número do Cartão'
@@ -86,9 +92,10 @@ export default function PaymentCard() {
                 {/* VALIDADE */}
                 <TextInput 
                     style={{width: 150}}
+                    maxLength={5} // limitando o número de caracteres/numbers para 5
                     className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                     onChangeText={setValidity} 
-                    value={validity}
+                    value={insertMaskInValidityDate(validity)}
                     placeholder='Validade'
                     inputMode='numeric'
                     placeholderTextColor={'#a1a1aa'}
@@ -100,6 +107,7 @@ export default function PaymentCard() {
                 {/* CVV */}
                 <TextInput 
                     style={{width: 100}}
+                    maxLength={3} // limitando o número de caracteres/numbers para 3
                     className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                     onChangeText={setCvv} 
                     value={cvv}

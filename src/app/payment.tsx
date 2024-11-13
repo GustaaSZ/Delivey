@@ -52,6 +52,7 @@ export default function Payment() {
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserName} 
+                maxLength={40} // -> Limitando o tamanho para 40
                 value={userName}
                 inputMode='text'
                 placeholder='Nome'
@@ -66,6 +67,7 @@ export default function Payment() {
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddressEmail} 
                 value={userAddressEmail}
+                maxLength={30} // -> limitando o tamanho para 30
                 placeholder='Email'
                 keyboardType='email-address'
                 placeholderTextColor={'#a1a1aa'}
@@ -82,6 +84,7 @@ export default function Payment() {
                     withDDD: true,
                     dddMask: '(99) '
                 }}
+                maxLength={11}// limitando o número de caracteres/numbers para 11
                 style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserPhone} 
                 value={userPhone}
@@ -96,6 +99,7 @@ export default function Payment() {
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddress} 
                 value={userAddress}
+                maxLength={40}
                 inputMode='text'
                 placeholder='Endereço'
                 placeholderTextColor={'#a1a1aa'}
@@ -108,6 +112,7 @@ export default function Payment() {
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setComplement} 
                 value={complement}
+                maxLength={10}
                 inputMode='text'
                 placeholder='Complemento'
                 placeholderTextColor={'#a1a1aa'}
@@ -120,6 +125,7 @@ export default function Payment() {
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setCep} 
                 value={insertMaskInCEP(cep)}
+                maxLength={9}
                 keyboardType='number-pad'
                 placeholder='CEP'
                 placeholderTextColor={'#a1a1aa'}
