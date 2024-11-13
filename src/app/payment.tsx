@@ -20,6 +20,11 @@ export default function Payment() {
     const [complement, setComplement] = React.useState('');
     const [cep, setCep] = React.useState('');
 
+    // Função que insere maskara no CEP
+    const insertMaskInCEP = (cep: string) => {
+        return cep.replace(/(\d{5})(\d)/, '$1-$2');
+    };
+
  return (
     <View className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
@@ -114,7 +119,7 @@ export default function Payment() {
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setCep} 
-                value={cep}
+                value={insertMaskInCEP(cep)}
                 keyboardType='number-pad'
                 placeholder='CEP'
                 placeholderTextColor={'#a1a1aa'}
