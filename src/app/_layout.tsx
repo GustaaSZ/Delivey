@@ -42,7 +42,7 @@ export default function RootLayout() {
               />
 
             <Drawer.Screen 
-              name="search" 
+              name="pages/search"
               options={{ 
                 drawerLabel: "Pesquisa", 
                 drawerIcon: ({ focused }) => (

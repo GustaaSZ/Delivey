@@ -1,16 +1,16 @@
 import { Text, View, ScrollView, FlatList } from "react-native";
-import { Header } from "../components/header";
+import { Header } from "../../components/header";
 import Constants from 'expo-constants'
-import { Search } from "../components/search";
-import { DrawerSceneWrapper } from "../components/drawer-scene-wrapper";
+import { Search } from "../../components/search";
+import { DrawerSceneWrapper } from "../../components/drawer-scene-wrapper";
 import { useState, useEffect } from "react";
-import { ItemFood2} from "../components/trending/food/index copy"; 
-import { FoodProps } from "../components/trending";
+import { ItemFood2} from "../../components/trending/food/index copy"; 
+import { FoodProps } from "../../components/trending";
 
 // Constante que define uma altura pra view de forma responsiva
 const statusBarHeight = Constants.statusBarHeight;
 
-export default function Notifications() {
+export default function SearchPage() {
 
   // Inicialização das listas vazias
   const [foods, setFoods] = useState<FoodProps[]>([]); 
