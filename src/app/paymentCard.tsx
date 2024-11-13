@@ -5,6 +5,8 @@ import Constants from 'expo-constants';
 import { Section } from '../components/section';
 import { BannerCard } from '../components/bannerCard';
 import { router } from 'expo-router';
+import { TextInputMask } from 'react-native-masked-text';
+import { usePayment } from '../components/contextCard';
 
 export default function PaymentCard() {
     // constante pra definir uma altura padrão e responsiva na view
@@ -12,6 +14,7 @@ export default function PaymentCard() {
 
     // Variaveis para ler a entrada dos usuários
     const [name, setName] = React.useState('');
+    const {userCardNumber, setUserCardNumber} = usePayment()
     const [number, setNumber] = React.useState('');
     const [validity, setValidity] = React.useState('');
     const [cvv, setCvv] = React.useState('');
@@ -63,17 +66,21 @@ export default function PaymentCard() {
             </TextInput>
 
             {/* NUMERO DO CARTÃO */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setNumber} 
-                value={number}
+            <TextInputMask 
+                type={'credit-card'}
+                options={{
+                    obfuscated: false,
+                    issuer: 'visa-or-mastercard',
+                }}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                onChangeText={setUserCardNumber} 
+                value={userCardNumber}
                 keyboardType='number-pad'
                 placeholder='Número do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
-                // editable
             >
-            </TextInput>
+            </TextInputMask>
 
             <View className='flex flex-row justify-between'>
                 {/* VALIDADE */}

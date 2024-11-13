@@ -6,10 +6,12 @@ interface PaymentContextType {
     userPhone: string;
     userAddress: string;
     userAddressEmail: string;
+    userCardNumber: string;
     setUserName: (name: string) => void;
     setUserPhone: (phone: string) => void;
     setUserAddress: (address: string) => void;
     setUserAddressEmail: (address: string) => void;
+    setUserCardNumber: (cardNumber: string) => void;
 }
 
 // Define o tipo para as props do PaymentProvider
@@ -36,9 +38,10 @@ export const PaymentProvider = ({ children }: PaymentProviderProps) => {
   const [userAddressEmail, setUserAddressEmail] = useState<string>('');
   const [userPhone, setUserPhone] = useState<string>('');
   const [userAddress, setUserAddress] = useState<string>('');
+  const [userCardNumber, setUserCardNumber] = useState<string>('');
 
   return (
-    <PaymentContext.Provider value={{ userName, setUserName, userAddressEmail, setUserAddressEmail ,userPhone, setUserPhone, userAddress, setUserAddress }}>
+    <PaymentContext.Provider value={{ userName, setUserName, userAddressEmail, setUserAddressEmail ,userPhone, setUserPhone, userAddress, setUserAddress, userCardNumber, setUserCardNumber}}>
       {children}
     </PaymentContext.Provider>
   );

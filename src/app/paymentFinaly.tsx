@@ -7,25 +7,20 @@ import { router } from 'expo-router';
 import { useCart } from '../components/context';
 import { usePayment } from '../components/contextCard';
 import { ScrollView } from 'react-native-gesture-handler';
+import { TextInputMask } from 'react-native-masked-text';
 
 export default function PaymentFinaly() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
     const {cartItems, getTotalPrice} = useCart();
-
-    // Função pra pegar o estado do inputs
-    // const hanfdlePayment = () => {
-        
-    // }
-
     const {userName} = usePayment();
     const {userAddressEmail} = usePayment();
     const {userPhone} = usePayment();
     const {userAddress} = usePayment();
+    const {userCardNumber} = usePayment();
 
  return (
-    // <ScrollView></ScrollView>
     <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
@@ -52,7 +47,7 @@ export default function PaymentFinaly() {
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userName}
-                inputMode='text'
+                placeholder='Nome'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
@@ -63,6 +58,7 @@ export default function PaymentFinaly() {
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userAddressEmail}
+                placeholder='E-mail'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
@@ -73,21 +69,41 @@ export default function PaymentFinaly() {
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userPhone}
+                placeholder='Número de telefone'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
             >
             </TextInput>
+
             {/* ENDERESSO DO USER */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userAddress}
+                placeholder='Endereço'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
-                editable={true}
+                editable={false}
             >
             </TextInput>
+
+            {/* NUmero do cartão do user */}
+            <TextInputMask 
+                type={'credit-card'}
+                options={{
+                    obfuscated: true,
+                    issuer: 'visa-or-mastercard',
+                }}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                value={userCardNumber}
+                placeholder='Número do Cartão'
+                placeholderTextColor={'#a1a1aa'}
+                underlineColorAndroid='transparent'
+                editable={false}
+            >
+            </TextInputMask>
         </View>
+
         <View className='items-center justify-between'>
             <Section 
                 name="Dados da Compra"
