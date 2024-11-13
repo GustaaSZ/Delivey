@@ -2,13 +2,14 @@ import React from 'react';
 import { View, Text, TextInput, Pressable } from 'react-native';
 import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
-import { useState } from 'react';
 import { Section } from '../components/section';
 import { router } from 'expo-router';
 import { usePayment } from '../components/contextCard';
 import { TextInputMask } from 'react-native-masked-text';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Payment() {
+
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
@@ -19,14 +20,26 @@ export default function Payment() {
     const {userAddress, setUserAddress} = usePayment();
     const [complement, setComplement] = React.useState('');
     const [cep, setCep] = React.useState('');
+    const [error, setError] = React.useState('');
 
     // Função que insere maskara no CEP
     const insertMaskInCEP = (cep: string) => {
         return cep.replace(/(\d{5})(\d)/, '$1-$2');
     };
 
+    // Função que verifica se os campos obrogatórios estão preenchidos
+    const handleSubmit = () => {
+        if(!userName || !userAddress || !userPhone || !cep){
+            setError('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        setError('');
+        // Se sim, navega pra tela seguinte
+        router.navigate('/paymentCard');
+    };
+
  return (
-    <View className='flex flex-1 bg-zinc-900'>
+    <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
                 <BackButton rota='/shoppingCart'/>
@@ -84,7 +97,7 @@ export default function Payment() {
                     withDDD: true,
                     dddMask: '(99) '
                 }}
-                maxLength={11}// limitando o número de caracteres/numbers para 11
+                maxLength={15}// limitando o número de caracteres/numbers para 15
                 style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserPhone} 
                 value={userPhone}
@@ -135,16 +148,19 @@ export default function Payment() {
         </View>
 
         <View className='items-center justify-center mt-10 px-10'>
+            {error ? (
+                <Text style={{ color: '#dc2626', marginBottom: 6, fontSize: 13 }}>{error}</Text>
+            ) : null }
         <Pressable 
             style={{backgroundColor: '#fcd34d'}}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            onPress={ () => router.navigate('/paymentCard') }
+            onPress={ handleSubmit }
             >   
             <Text className='text-black font-bold text-xl'>Próximo</Text>
         </Pressable>
 
         </View>
-    </View>
+    </ScrollView>
    
   );
 }
