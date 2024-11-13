@@ -81,6 +81,19 @@ export default function RootLayout() {
                 ),
               }}
             />
+            <Drawer.Screen 
+              name="teste" 
+              options={{ 
+                drawerLabel: "Teste", 
+                drawerIcon: ({ focused }) => (
+                  <Feather 
+                    name={focused ? 'credit-card' : 'credit-card'} 
+                    color={focused ? '#d4d4d8' : '#e4e4e7'} 
+                    size={18} 
+                  />
+                ),
+              }}
+            />
             {/* Ocultando as rotas indesejadas */}
             <Drawer.Screen 
               name="foodDetails" 

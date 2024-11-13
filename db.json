@@ -1,130 +1,126 @@
 {
   "restaurants": [
-    { 
-      "id": "1", 
-      "name": "Jeronimo", 
+    {
+      "id": "1",
+      "name": "Jeronimo",
       "image": "https://imgur.com/gukOjmT.png",
       "imageLocal": "https://imgur.com/krgQgXq.png"
     },
-    { 
-      "id": "2", 
-      "name": "McDonald's", 
+    {
+      "id": "2",
+      "name": "McDonald's",
       "image": "https://i.imgur.com/su4iB3p.png",
       "imageLocal": "https://imgur.com/5a7NI7t.png"
-      
     },
-    { 
-      "id": "3", 
-      "name": "Outback", 
+    {
+      "id": "3",
+      "name": "Outback",
       "image": "https://imgur.com/gaGNAq8.png",
       "imageLocal": "https://imgur.com/wy4oYIS.png"
     },
-    { 
-      "id": "4", 
-      "name": "Sushiloko", 
+    {
+      "id": "4",
+      "name": "Sushiloko",
       "image": "https://imgur.com/pKtOYNC.png",
       "imageLocal": "https://imgur.com/YY3Yvgl.png"
     },
-    { 
-      "id": "5", 
-      "name": "KFC", 
+    {
+      "id": "5",
+      "name": "KFC",
       "image": "https://i.imgur.com/sZ1Jye3.png",
       "imageLocal": "https://imgur.com/FOvlz9o.png"
     },
-    { 
-      "id": "6", 
-      "name": "La Brasa", 
+    {
+      "id": "6",
+      "name": "La Brasa",
       "image": "https://imgur.com/9naUERj.png",
       "imageLocal": "https://imgur.com/tgX7Rdk.png"
     },
-    { 
-      "id": "7", 
-      "name": "Coco Bambu", 
+    {
+      "id": "7",
+      "name": "Coco Bambu",
       "image": "https://imgur.com/Zv8hozc.png",
       "imageLocal": "https://imgur.com/1o0SUbZ.png"
     },
-    { 
-      "id": "8", 
-      "name": "Buger King", 
+    {
+      "id": "8",
+      "name": "Buger King",
       "image": "https://imgur.com/eh6AWMu.png",
       "imageLocal": "https://imgur.com/R0skijX.png"
     },
-    { 
-      "id": "9", 
-      "name": "Magero Burger", 
+    {
+      "id": "9",
+      "name": "Magero Burger",
       "image": "https://imgur.com/XTO2t5U.png",
       "imageLocal": "https://imgur.com/ZebCW1E.png"
     },
-    { 
-      "id": "10", 
-      "name": "Pizzaria Cesár", 
+    {
+      "id": "10",
+      "name": "Pizzaria Cesár",
       "image": "https://imgur.com/ECAvw8u.png",
       "imageLocal": "https://imgur.com/tHtEJxC.png"
     },
-    { 
-      "id": "11", 
-      "name": "Giraffas", 
+    {
+      "id": "11",
+      "name": "Giraffas",
       "image": "https://imgur.com/XYmljrt.png",
       "imageLocal": "https://imgur.com/ozhcuBX.png"
     },
-    { 
-      "id": "12", 
-      "name": "Oakberry", 
+    {
+      "id": "12",
+      "name": "Oakberry",
       "image": "https://imgur.com/FriNrnO.png",
       "imageLocal": "https://imgur.com/Fru3jtu.png"
     }
   ],
   "foods": [
-    { 
-      "id": "1", 
-      "name": "Extra Cheese Bacon", 
-      "price": 44.90,
+    {
+      "id": "1",
+      "name": "Extra Cheese Bacon",
+      "price": 44.9,
       "time": "50-60 min",
       "delivery": 5.99,
-      "rating": 5.0,
+      "rating": 5,
       "image": "https://imgur.com/3aH8zZg.png",
       "restaurantId": "6",
       "ingredientes": "2 burgers de 100g, 2 fatias de queijo prato, 4 fatias de bacon."
-
     },
-    { 
-      "id": "2", 
-      "name": "La brasa Combo 3", 
-      "price": 49.90,
+    {
+      "id": "2",
+      "name": "La brasa Combo 3",
+      "price": 49.9,
       "time": "30-40 min",
       "delivery": 5.99,
       "rating": 4.9,
       "image": "https://imgur.com/8hHJl5Z.png",
       "restaurantId": "6",
       "ingredientes": "Onion ring + Batata + Refri + Molho da casa."
-
     },
-    { 
-      "id": "3", 
-      "name": "Picanha Black Angus", 
-      "price": 159.00,
+    {
+      "id": "3",
+      "name": "Picanha Black Angus",
+      "price": 159,
       "time": "50-60 min",
       "delivery": 2.99,
       "rating": 4.9,
       "image": "https://imgur.com/lhpVU7w.png",
       "restaurantId": "7",
       "ingredientes": "Picanha Black Angus (300g) Picanha da raça Angus, acompanhada de vinagrete, chimichurri, farofa amarela, mandioca cozida ze arroz biro biro."
-      
     },
-    { 
-      "id": "4", 
-      "name": "Camarão Coco Brasil", 
-      "price": 344.00,
+    {
+      "id": "4",
+      "name": "Camarão Coco Brasil",
+      "price": 344,
       "time": "60-90 min",
       "delivery": 7.99,
-      "rating": 5.0,
+      "rating": 5,
       "image": "https://imgur.com/TYJjN1m.png",
       "restaurantId": "7",
       "ingredientes": "18 camarões empanados e recheados com catupiry, sobre um cremoso arroz de moqueca com camarõees e coentro, coberto com batata palha. Acompanha farofa de panko com bacon e alhoporó."
     },
-    { 
-      "id": "5", 
-      "name": "Big Mac", 
+    {
+      "id": "5",
+      "name": "Big Mac",
       "price": 39.99,
       "time": "40-50 min",
       "delivery": 4.99,
@@ -133,20 +129,20 @@
       "restaurantId": "2",
       "ingredientes": "Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim."
     },
-    { 
-      "id": "6", 
-      "name": "Pizza de Calabresa", 
+    {
+      "id": "6",
+      "name": "Pizza de Calabresa",
       "price": 54.99,
       "time": "50-60 min",
       "delivery": 5.99,
-      "rating": 5.0,
+      "rating": 5,
       "image": "https://imgur.com/QTP9g3J.png",
       "restaurantId": "10",
       "ingredientes": "Massa de fermentação de longa, Molho de tomate Pelatti, muçarela, Calabresa acebolada."
     },
-    { 
-      "id": "7", 
-      "name": "Pizza Broto de Chocolate", 
+    {
+      "id": "7",
+      "name": "Pizza Broto de Chocolate",
       "price": 34.99,
       "time": "50-60 min",
       "delivery": 5.99,
@@ -155,9 +151,9 @@
       "restaurantId": "10",
       "ingredientes": "Massa de longa fermentação ,fina camada de muçarela chocolate ao leite + pedaços de morango"
     },
-    { 
-      "id": "8", 
-      "name": "Açai Oakberry 400ml", 
+    {
+      "id": "8",
+      "name": "Açai Oakberry 400ml",
       "price": 16.99,
       "time": "20-30 min",
       "delivery": 2.99,
@@ -165,6 +161,16 @@
       "image": "https://imgur.com/TP245Dn.png",
       "restaurantId": "12",
       "ingredientes": "Açaí oakberry + aveia + leite ninho + morango."
+    }
+  ],
+  "users": [
+    {
+      "id": "795c",
+      "name": "Gustavo Abrantes de Souza",
+      "email": "Gugaabrantes2015@gmail.comGG",
+      "cpf": "07652749140",
+      "phone": "(61) 99561-5191",
+      "password": "123"
     }
   ]
 }
