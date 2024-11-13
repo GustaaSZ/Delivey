@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import FoodDetails from './foodDetails';
+import FoodDetails from './pages/foodDetails';
 import Payment  from './payment';
 import PaymentCard from './paymentCard';
 import PaymentFinaly from './paymentFinaly';
@@ -11,7 +11,7 @@ export default function StackRoutes() {
  return (
    <Stack.Navigator screenOptions={{ title: '', headerShadowVisible: false}}>
       <Stack.Screen
-        name='foodDetails'
+        name='pages/foodDetails'
         component={FoodDetails}
       />
       <Stack.Screen

@@ -1,12 +1,12 @@
 import { useLocalSearchParams } from 'expo-router';
 import { View, Text, Pressable, ImageBackground, Image, Modal } from 'react-native';
 import { useEffect, useState } from 'react';
-import BackButton from '../components/backButton';
+import BackButton from '../../components/backButton';
 import Constants from 'expo-constants';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Section } from '../components/section';
+import { Section } from '../../components/section';
 import { Feather } from '@expo/vector-icons';
-import CustomModal  from '../components/moldal';
+import CustomModal  from '../../components/moldal';
 
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;

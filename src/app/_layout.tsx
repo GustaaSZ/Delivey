@@ -96,7 +96,7 @@ export default function RootLayout() {
             />
             {/* Ocultando as rotas indesejadas */}
             <Drawer.Screen 
-              name="foodDetails" 
+              name="pages/foodDetails" 
               options={{ 
                 drawerItemStyle: { display: 'none' } // ocultando do drawer
               }}
