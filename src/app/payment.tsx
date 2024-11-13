@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Section } from '../components/section';
 import { router } from 'expo-router';
 import { usePayment } from '../components/contextCard';
+import { TextInputMask } from 'react-native-masked-text';
 
 export default function Payment() {
     // constante pra definir uma altura padrão e responsiva na view
@@ -69,16 +70,21 @@ export default function Payment() {
             </TextInput>
 
             {/* Numero */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+            <TextInputMask 
+                type='cel-phone'
+                options={{
+                    maskType: 'BRL',
+                    withDDD: true,
+                    dddMask: '(99) '
+                }}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserPhone} 
                 value={userPhone}
-                keyboardType='phone-pad'
                 placeholder='Numero de telefone'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
             >
-            </TextInput>
+            </TextInputMask>
 
             {/* Endereço */}
             <TextInput 
