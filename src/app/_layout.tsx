@@ -82,9 +82,9 @@ export default function RootLayout() {
               }}
             />
             <Drawer.Screen 
-              name="teste" 
+              name="registerUser" 
               options={{ 
-                drawerLabel: "Teste", 
+                drawerLabel: "Cadastro", 
                 drawerIcon: ({ focused }) => (
                   <Feather 
                     name={focused ? 'credit-card' : 'credit-card'} 

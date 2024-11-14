@@ -3,7 +3,7 @@ import FoodDetails from './pages/foodDetails';
 import Payment  from './payment';
 import PaymentCard from './paymentCard';
 import PaymentFinaly from './paymentFinaly';
-import Teste from './teste';
+import RegisterUser from './registerUser';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +27,8 @@ export default function StackRoutes() {
         component={PaymentFinaly}
       />
       <Stack.Screen
-        name='teste'
-        component={Teste}
+        name='registerUser'
+        component={RegisterUser}
       />
    </Stack.Navigator>
   );

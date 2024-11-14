@@ -4,71 +4,71 @@ import BackButton from '../components/backButton';
 import Constants from 'expo-constants';
 import { Section } from '../components/section';
 import { router } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePayment } from '../components/contextCard';
 import { TextInputMask } from 'react-native-masked-text';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Link } from 'expo-router';
 
-export default function Teste() {
+export default function Login() {
 
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
 
     // Variaveis para ler a entrada dos usuários
-    const [ userName, setUserName ] =  useState('');
+    
     const [ userAddressEmail, setUserAddressEmail ] = useState('');
-    const [ userPhone, setUserPhone ] = useState('');
-    const [ userCPF, setUserCPF ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
     const [error, setError] = React.useState('');
 
 
     // Função para adiconar um novo usuário
-    const handleAddUser = async () => {
+    const handleLogin = async () => {
 
         // Verificando se todos os campos (são obrigatórios) forma preenchidos
-        if(!userName || !userAddressEmail || !userPhone || !userCPF || ! userPassword){
+        if(!userAddressEmail || !userPassword){
             setError('Por favor, preencha todos os campos!')
             return;
         }
         // Limpando o erro
         setError('')
 
-        // Criando uma tipagem do user
-        const newUser = {
-            name: userName,
+        // Criando um objeto para enviar as credenciais
+        const loginData = {
             email: userAddressEmail,
-            cpf: userCPF,
-            phone: userPhone,
             password: userPassword,
         };
         
         // Cód que pode apresentar erro, por isso, usamos try catch()
         try {
-            // fazendo requisição do tipo post para add user
-            const response = await fetch("http://192.168.1.12:3000/users", {
-                method: 'POST',
-                headers : {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newUser)
-            });
+            // Fazendo uma requisição GET com parâmetros de consulta (query params)
+        const response = await fetch(`http://192.168.1.12:3000/users?email=${encodeURIComponent(userAddressEmail)}&password=${encodeURIComponent(userPassword)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
             // Verificando se o response deu certo
             if(response.ok){
-                Alert.alert("Sucesso", "Usuário cadastrado com sucesso!");
-                // Limpando os campos após o cadastro
-                setUserName('');
-                setUserAddressEmail('');
-                setUserCPF('');
-                setUserPhone('');
-                setUserPassword('');
-                router.navigate('/stack.routes');
+                
+                const users = await response.json();
+
+                // Verificando se algum usuário foi encontrado
+                if (users.length > 0) {
+                    // Usuário encontrado, redireciona para a página principal
+                    await AsyncStorage.setItem('userToken', 'user-token-placeholder'); // Defina um token real aqui, se necessário
+                    router.navigate('./');
+                } else {
+                    Alert.alert('Erro', 'Email ou senha incorretos. Tente novamente.');
+                 }
             } else {
-                Alert.alert("Erro", "Naõ foi possível cadastrar o usuário!");
+                // Caso o login falhe, exibir mensagem de erro
+                Alert.alert('Erro', 'Ocorreu um erro ao tentar fazer login.');
             }
         } catch (error) {
-            console.error("Erro ao cadastrar usuário:", error);
-            Alert.alert("Erro", "Ocorreu um erro ao tentar cadastrar o usuário.");
+            console.error('Erro ao tentar fazer login:', error);
+            Alert.alert('Erro', 'Ocorreu um erro ao tentar fazer login.');
         }
 
     }
@@ -79,7 +79,7 @@ export default function Teste() {
                 <BackButton rota='/shoppingCart'/>
             </View>
             <View className='flex items-center justify-center'>
-                <Text className='text-zinc-200 text-4xl'> Cadastro de Usuário</Text>
+                <Text className='text-zinc-200 text-4xl'> Página de Login </Text>
             </View>
             <View className='px-6'>
                 <Section 
@@ -95,20 +95,6 @@ export default function Teste() {
         {/* VIEW DOS INPUTS */}
         <View className='px-6 gap-10'>
 
-            {/* Nome */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setUserName} 
-                maxLength={40} // -> Limitando o tamanho para 40
-                value={userName}
-                inputMode='text'
-                placeholder='Nome Completo'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-                // editable
-            >
-            </TextInput>
-
             {/* E-mail */}
             <TextInput 
                 className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
@@ -119,41 +105,10 @@ export default function Teste() {
                 keyboardType='email-address'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
+                
                 // editable
             >
             </TextInput>
-
-            {/* CPF */}
-            <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setUserCPF} 
-                value={userCPF}
-                maxLength={30} // -> limitando o tamanho para 30
-                placeholder='Cpf'
-                keyboardType='email-address'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-                // editable
-            >
-            </TextInput>
-
-            {/* Numero */}
-            <TextInputMask 
-                type='cel-phone'
-                options={{
-                    maskType: 'BRL',
-                    withDDD: true,
-                    dddMask: '(99) '
-                }}
-                maxLength={15}// limitando o número de caracteres/numbers para 15
-                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
-                onChangeText={setUserPhone} 
-                value={userPhone}
-                placeholder='Numero de telefone'
-                placeholderTextColor={'#a1a1aa'}
-                underlineColorAndroid='transparent'
-            >
-            </TextInputMask>
 
             {/* Password */}
             <TextInput 
@@ -168,7 +123,6 @@ export default function Teste() {
             >
             </TextInput>
             
-            
         </View>
 
         <View className='items-center justify-center mt-10 px-10'>
@@ -178,10 +132,11 @@ export default function Teste() {
         <Pressable 
             style={{backgroundColor: '#fcd34d'}}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            onPress={ handleAddUser }
+            onPress={ handleLogin }
             >   
-            <Text className='text-black font-bold text-xl'>Cadastrar</Text>
+            <Text className='text-black font-bold text-xl'>Login</Text>
         </Pressable>
+        <Link href={'/registerUser'} style={{fontSize: 13}} className=' mt-6 text-zinc-500 underline'> Ainda não possui uma conta? Cadastre-se</Link>
 
         </View>
     </ScrollView>
