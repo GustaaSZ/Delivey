@@ -57,8 +57,9 @@ export default function Login() {
                 // Verificando se algum usuário foi encontrado
                 if (users.length > 0) {
                     // Usuário encontrado, redireciona para a página principal
-                    await AsyncStorage.setItem('userToken', 'user-token-placeholder'); // Defina um token real aqui, se necessário
-                    router.navigate('./');
+                    const simulatedToken = 'fake-token'; // Token fictício
+                    await AsyncStorage.setItem('userToken', simulatedToken); // Defina um token real aqui, se necessário
+                    router.navigate('/pages/search');
                 } else {
                     Alert.alert('Erro', 'Email ou senha incorretos. Tente novamente.');
                  }
@@ -75,9 +76,7 @@ export default function Login() {
  return (
     <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
-            <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
-                <BackButton rota='/shoppingCart'/>
-            </View>
+            <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 45}}></View>
             <View className='flex items-center justify-center'>
                 <Text className='text-zinc-200 text-4xl'> Página de Login </Text>
             </View>

@@ -171,6 +171,14 @@
       "cpf": "07652749140",
       "phone": "(61) 99561-5191",
       "password": "123"
+    },
+    {
+      "id": "4c95",
+      "name": "Guilherme",
+      "email": "Guiabrantes2015@gmail.com",
+      "cpf": "07652761190",
+      "phone": "(61) 99267-9790",
+      "password": "1234"
     }
   ]
 }
