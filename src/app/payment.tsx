@@ -42,7 +42,7 @@ export default function Payment() {
     <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
             <View className="w-full px-2 my-10 mr-2" style={{ marginTop: statusBarHeight + 15}}>
-                <BackButton rota='/shoppingCart'/>
+                <BackButton rota='./'/>
             </View>
             <View className='flex items-center justify-center'>
                 <Text className='text-zinc-200 text-4xl'> Página de pagamento</Text>
