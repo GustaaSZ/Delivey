@@ -1,4 +1,3 @@
-import '../styles/global.css'
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
@@ -18,7 +17,7 @@ export default function RootLayout() {
 
   // Simulando um token de autenticação
   useEffect(() => {
-    const simulatedToken = 'z'; // Coloque qualquer string aqui
+    const simulatedToken = 'a'; // Coloque qualquer string aqui
     setIsAuthenticated(!!simulatedToken); // Se tiver uma string, o usuário será considerado autenticado
   }, []);
 
@@ -38,13 +37,14 @@ export default function RootLayout() {
   }
   
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
+    
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <PaymentProvider>
         <CartProvider>
           <Drawer 
             screenOptions={{
               headerShown: false,
-              drawerStyle: {backgroundColor: '#09090b', width: "55%", paddingTop: 32}, // define a cor a largura e o espaço superior do drawer
+              drawerStyle: { backgroundColor: '#09090b', width: "55%", paddingTop: 32}, // define a cor a largura e o espaço superior do drawer
               drawerActiveBackgroundColor: "transparent", // cor do background quando ativo
               drawerInactiveBackgroundColor: "transparent", // cor do background quando inativo
               drawerActiveTintColor: '#84cc16', // Cor do texto quando ativo
@@ -52,11 +52,9 @@ export default function RootLayout() {
               drawerHideStatusBarOnOpen: false, // deixa a statusbar visivel quando seleciona o drawer
               overlayColor: 'transparent',
               drawerLabelStyle: {
-                marginLeft: -14, // espaço entre icone e texto
+                marginLeft: 1, // espaço entre icone e texto
               },
-              sceneContainerStyle: {
-                backgroundColor: '#09090b' // mudando a cor do fundo do scene quando a tela muda de tamanho
-              }
+               
             }}
           >
               {/* Estilização do Icone */}
@@ -69,7 +67,9 @@ export default function RootLayout() {
                     size={18} 
                   />
                 ),
+                
               }}
+              
               />
 
             <Drawer.Screen 
@@ -154,5 +154,6 @@ export default function RootLayout() {
         </CartProvider>
       </PaymentProvider>
     </GestureHandlerRootView>
+
   );
 }

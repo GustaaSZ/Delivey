@@ -95,7 +95,7 @@ export default function RegisterUser() {
 
             {/* Nome */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserName} 
                 maxLength={40} // -> Limitando o tamanho para 40
                 value={userName}
@@ -109,7 +109,7 @@ export default function RegisterUser() {
 
             {/* E-mail */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddressEmail} 
                 value={userAddressEmail}
                 maxLength={30} // -> limitando o tamanho para 30
@@ -123,7 +123,7 @@ export default function RegisterUser() {
 
             {/* CPF */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserCPF} 
                 value={userCPF}
                 maxLength={30} // -> limitando o tamanho para 30
@@ -155,7 +155,7 @@ export default function RegisterUser() {
 
             {/* Password */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserPassword} 
                 value={userPassword}
                 maxLength={40}

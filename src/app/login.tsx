@@ -96,7 +96,7 @@ export default function Login() {
 
             {/* E-mail */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddressEmail} 
                 value={userAddressEmail}
                 maxLength={30} // -> limitando o tamanho para 30
@@ -111,7 +111,7 @@ export default function Login() {
 
             {/* Password */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserPassword} 
                 value={userPassword}
                 maxLength={40}
