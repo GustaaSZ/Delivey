@@ -1,3 +1,4 @@
+import '../styles/global.css'
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { Drawer } from "expo-router/drawer"
 import { Feather, Ionicons } from '@expo/vector-icons';
