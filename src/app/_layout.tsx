@@ -55,6 +55,9 @@ export default function RootLayout() {
               drawerLabelStyle: {
                 marginLeft: 1, // espaço entre icone e texto
               },
+              sceneStyle: {
+                backgroundColor: '#09090b'
+              }
                
             }}
           >
