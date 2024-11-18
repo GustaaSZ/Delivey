@@ -63,13 +63,14 @@ export default function PaymentCard() {
             
             {/* NOME DO CARTÃO  */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setName} 
                 value={name}
                 inputMode='text'
                 placeholder='Nome do Cartão'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
+                style={{height: 40}}
                 // editable
             >
             </TextInput>
@@ -81,7 +82,7 @@ export default function PaymentCard() {
                     obfuscated: false,
                     issuer: 'visa-or-mastercard',
                 }}
-                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 40, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserCardNumber} 
                 maxLength={19} // limitando o tamanho para 19 pois com a maskara de cardNumber, terá espaço em 3 lugares, ou seja = 16 + 3 
                 value={userCardNumber}
@@ -95,24 +96,25 @@ export default function PaymentCard() {
             <View className='flex flex-row justify-between'>
                 {/* VALIDADE */}
                 <TextInput 
-                    style={{width: 150}}
+                    style={{width: 150, height: 40}}
                     maxLength={5} // limitando o número de caracteres/numbers para 5
-                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                    className='px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                     onChangeText={setValidity} 
                     value={insertMaskInValidityDate(validity)}
                     placeholder='Validade'
                     inputMode='numeric'
                     placeholderTextColor={'#a1a1aa'}
                     underlineColorAndroid='transparent'
+                    
                     // editable
                 >
                 </TextInput>
 
                 {/* CVV */}
                 <TextInput 
-                    style={{width: 100}}
+                    style={{width: 100, height: 40}}
                     maxLength={3} // limitando o número de caracteres/numbers para 3
-                    className='px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                    className='px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                     onChangeText={setCvv} 
                     value={cvv}
                     keyboardType='number-pad'
@@ -126,7 +128,7 @@ export default function PaymentCard() {
 
         <View className='items-center justify-center mt-10 px-10'>
             {error ? (
-                <Text style={{ color: '#dc2626', marginBottom: 6, fontSize: 13 }}>{error}</Text>
+                <Text style={{ color: '#dc2626', marginBottom: 2, fontSize: 13 }}>{error}</Text>
             ) : null }
 
             <Pressable 
@@ -136,6 +138,7 @@ export default function PaymentCard() {
                 >   
                 <Text className='text-black font-bold text-xl'>Próximo</Text>
             </Pressable>
+            <View className='mb-12'></View>
         </View>
     </ScrollView>
    

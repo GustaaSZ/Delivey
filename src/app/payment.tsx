@@ -63,7 +63,7 @@ export default function Payment() {
 
             {/* Nome */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-12 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserName} 
                 maxLength={40} // -> Limitando o tamanho para 40
                 value={userName}
@@ -77,7 +77,7 @@ export default function Payment() {
 
             {/* E-mail */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-12 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddressEmail} 
                 value={userAddressEmail}
                 maxLength={30} // -> limitando o tamanho para 30
@@ -98,7 +98,7 @@ export default function Payment() {
                     dddMask: '(99) '
                 }}
                 maxLength={15}// limitando o número de caracteres/numbers para 15
-                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 40, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserPhone} 
                 value={userPhone}
                 placeholder='Numero de telefone'
@@ -109,7 +109,7 @@ export default function Payment() {
 
             {/* Endereço */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-12 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddress} 
                 value={userAddress}
                 maxLength={40}
@@ -122,7 +122,7 @@ export default function Payment() {
             
             {/* Complemento */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-12 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setComplement} 
                 value={complement}
                 maxLength={10}
@@ -135,7 +135,7 @@ export default function Payment() {
 
             {/* CEP */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 h-12 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setCep} 
                 value={insertMaskInCEP(cep)}
                 maxLength={9}
@@ -147,17 +147,18 @@ export default function Payment() {
             </TextInput>
         </View>
 
-        <View className='items-center justify-center mt-10 px-10'>
+        <View className='items-center justify-center mt-8 px-10'>
             {error ? (
-                <Text style={{ color: '#dc2626', marginBottom: 6, fontSize: 13 }}>{error}</Text>
+                <Text style={{ color: '#dc2626', marginBottom: 2, fontSize: 13 }}>{error}</Text>
             ) : null }
-        <Pressable 
-            style={{backgroundColor: '#fcd34d'}}
-            className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
-            onPress={ handleSubmit }
-            >   
-            <Text className='text-black font-bold text-xl'>Próximo</Text>
-        </Pressable>
+            <Pressable 
+                style={{backgroundColor: '#fcd34d'}}
+                className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
+                onPress={ handleSubmit }
+                >   
+                <Text className='text-black font-bold text-xl'>Próximo</Text>
+            </Pressable>
+            <View className='mb-12'></View>
 
         </View>
     </ScrollView>

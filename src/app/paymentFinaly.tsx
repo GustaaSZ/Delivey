@@ -45,45 +45,49 @@ export default function PaymentFinaly() {
             
             {/* NOME DO USUÁRIO  */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userName}
                 placeholder='Nome'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
+                style={{height: 40}}
             >
             </TextInput>
 
             {/* E-MAIL DO USER */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userAddressEmail}
                 placeholder='E-mail'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
+                style={{height: 40}}
             >
             </TextInput>
 
             {/* NUMERO DO USER */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userPhone}
                 placeholder='Número de telefone'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
+                style={{height: 40}}
             >
             </TextInput>
 
             {/* ENDERESSO DO USER */}
             <TextInput 
-                className='w-100 px-4 h-10 border border-zinc-600 rounded-lg text-zinc-300' 
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 value={userAddress}
                 placeholder='Endereço'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
                 editable={false}
+                style={{height: 40}}
             >
             </TextInput>
 
@@ -94,7 +98,7 @@ export default function PaymentFinaly() {
                     obfuscated: true,
                     issuer: 'visa-or-mastercard',
                 }}
-                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 40, paddingLeft: 16, color: '#d4d4d8'}}
                 value={userCardNumber}
                 placeholder='Número do Cartão'
                 placeholderTextColor={'#a1a1aa'}
