@@ -11,7 +11,7 @@ export function ItemFood2({ food }: { food: FoodProps }) {
             className='flex flex-col rounded-xl relative items-center justify-center'
             onPress={() => router.navigate({ 
                 // Caminho de navegação
-                pathname: './foodDetails', // caminho alternativo pro tsx reconhecer
+                pathname: '/pages/foodDetails', // Caminho absoluto a partir da pasta 'src/app'
                 // Passando os parâmetros para navegação pra tela de foodDetails
                 params: {
                     id: food.id,
