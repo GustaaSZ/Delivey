@@ -15,13 +15,13 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                 // Passando os parâmetros para navegação pra tela de foodDetails
                 params: {
                     id: food.id,
-                    name: food.name,
-                    price: food.price,
-                    rating: food.rating,
-                    image: food.image,
-                    time: food.time,
-                    ingredientes: food.ingredientes,
-                    restaurantId: food.restaurantId,
+                    // name: food.name,
+                    // price: food.price,
+                    // rating: food.rating,
+                    // image: food.image,
+                    // time: food.time,
+                    // ingredientes: food.ingredientes,
+                    // restaurantId: food.restaurantId,
                 } 
             })} 
         >

@@ -11,83 +11,103 @@ import CustomModal  from '../../components/moldal';
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
 
+    // Definindo interce Food que define os valores e os tipos que são esperados de um objeto Food
+    interface Food {
+        id: string;
+        name: string;
+        price: number;
+        rating: number;
+        image: string;
+        time: string;
+        ingredientes: string[];
+        restaurantId: string;
+    }
+    
+    // Definindo interce Restaurant que define os valores e os tipos que são esperados de um Objeto Restaurant
+    interface Restaurant {
+        id: string;
+        name: string;
+        image: string;
+        imageLocal: string;
+    }
+
 export default function FoodDetails() {
 
-    // Acessa os atributos do alimento
-    const { id, name, price, rating, time, image, ingredientes, restaurantId } = useLocalSearchParams(); 
-
-    // Verificando se os atribbutos (name, id, image) são uma string e price um number
-    const itemId = Array.isArray(id) ? id[0] : id;
-    const itemName = Array.isArray(name) ? name[0] : name;
-    const imageUri = Array.isArray(image) ? image[0] : image; // Pega o primeiro valor se for um array
-
-    const itemPrice = Array.isArray(price) ? parseFloat(price[0]) : Number(price);
-    const [restaurant, setRestaurant] = useState<{ id: string, name: string, image: string, imageLocal: string}  | null>(null);
-
-    const [quantity, setQuantity] = useState(1)
-    const [showModal, setShowModal] = useState(false);
-
+    
+    const { id } = useLocalSearchParams(); // Acesso os atributos do alimento passados como parâmetros na tela de ItemFood2 
+    const [ quantity, setQuantity ] = useState(1); // Quantity inicializado com 1, onde setQuantity é func que att o valor de quantity
+    const [ showModal, setShowModal ] = useState(false); // showModal inicializado como false , onde setShowModal é func que att o valor de showModal
+    const [ food, setFood ] = useState< Food | null >(null); // Pode ser Food ou null. Neste caso, food começa como null para depois ser atualizado dentro da requisição
+    const [ restaurant, setRestaurant ] = useState< Restaurant | null >(null); // Pode ser Restaurant ou null. Neste caso Restaurant é inicializado como null, para depois ser atualizado dentro da requisição
+    
     // Funções que incrementam e decrementam a quantidade do itemFood
     const increaseQuantity = () => setQuantity((prev) => prev + 1);
     const decreaseQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
 
-    useEffect(() => {
-        // Função anônima
-        const fetchRestaurantDetails = async () => {
-            // Código que irá executar com potencial de erro
-            try {
-                // Requisição HTTP (Busca da API)
-                // A função fetch faz uma requisição GET para o endereço fornecido.
-                //  Como está sendo usada com await, o código espera a resposta da requisição
-                //  antes de continuar, garantindo que response contenha a resposta da API.
-                const response = await fetch("http://192.168.1.12:3000/restaurants");
-                if (!response.ok) {
-                    // O objeto response possui uma propriedade ok,
-                    //  que será true se a resposta tiver um status 
-                    // de sucesso (códigos 200–299) e false caso contrário.
-                    //  Se ok for false (indicando erro), o código lança (throw) 
-                    // uma nova Error com uma mensagem personalizada que inclui o status HTTP da resposta.
-                    throw new Error(`HTTP error! status: ${response.status}`);
+    useEffect(() => { // faz requisição assícrona de um alimento, sempre que o ID mudar
+        
+        const fetchDetails = async () => { // função async responsável por buscar os detalhes da comida e do restaurant
+            try { // caso dê errado, primeiro renderizamos, depois tratamos
+                
+                // REQUISIÇÃO FOOD
+                const foodResponse = await fetch(`http://192.168.1.12:3000/foods/${id}`); // requisição http usando fetch para obter os dados do alimento a partir do endpoint de foods que depende de id
+                if (!foodResponse.ok) { // verificando se a requisição foi bem sucedida, caso não, lançamos mensagem de erro
+                    throw new Error(`Erro ao buscar comida! Status: ${foodResponse.status}`);
                 }
-                // Transformando o response em json que agora será armazenado no data
-                const data = await response.json();
-                // Filtrando o restaurante pelo restaurantId do prato
-                const foundRestaurant = data.find((rest: {id: string}) => rest.id == restaurantId);
+                // Se passou, convertemos o foodResponse com as infos do food para json
+                const foodData = await foodResponse.json();
+                setFood(foodData); // E mudamos o valor de food com foodData (json com dados do food) usando o SetFood
+        
+                // REQUISIÇÃO RESTAURANT
 
-                // Define o restaurante específico ou null caso não encontre
-                setRestaurant(foundRestaurant || null); 
-
-                // Caso ocorra algum erro, printando o erro
-            } catch (error) {
-                console.error("Error fetching restaurant details:", error);
+                // requisição http usando fetch para obter os dados do restaurant a partir do endpoint de restaurants que depende do restaurantId, presente no endpoint de foods
+                // Neste cado, passamos foodData da requisição anterior e pegamos o valor de restaurantId que pertence ao endpoint de foods
+                const restaurantResponse = await fetch(`http://192.168.1.12:3000/restaurants/${foodData.restaurantId}`); 
+                if (!restaurantResponse.ok) {  // verificando se a requisição foi bem sucedida, caso não, lançamos mensagem de erro
+                    throw new Error(`Erro ao buscar restaurante! Status: ${restaurantResponse.status}`);
+                }
+                // Se passou, convertemos o restaurantResponse com as infos do restaurant para json
+                const restaurantData = await restaurantResponse.json();
+                setRestaurant(restaurantData); // E mudamos o valor de restaurant com restaurantData (json com dados do restaurant) usando o SetRestaurant
+            
+            } catch (error) { // Tratando com um console.log caso o bloco de cod do try de errado
+                console.error('Erro ao buscar detalhes:', error);
             }
         };
-
-        if (restaurantId) { // Somente busca se o restaurantId estiver presente
-            fetchRestaurantDetails();
+        
+        if (id) {
+          fetchDetails(); // A execução da função fetchDetails é condicionada à presença de um valor válido de id. 
+            // Isso evita que o código tente buscar dados de comida e restaurante quando o id não 
+            // estiver disponível (por exemplo, antes de o componente ser renderizado ou se o valor do id for null ou undefined).
         }
-    }, [restaurantId]);
+    }, [id]);
 
     return (
         <View 
             style={{ flex: 1, backgroundColor: '#18181b' }} 
             className="bg-zinc-900 text-zinc-300"
         >   
-            <View className="w-full px-0 bg-zinc-900" >
-                <ImageBackground
-                    source={{ uri: imageUri }}
-                    style={{
-                        width: '100%',
-                        height: 200,  // Defina a altura 
-                        justifyContent: 'flex-start',
-                        paddingTop: statusBarHeight + 15,
-                    }}
-                    resizeMode="cover"
-                >
-                    {/* Botão de voltar sobre a imagem */}
-                    <BackButton rota='pages/search' />
-                </ImageBackground>
-            </View>
+            {food ? ( // Caso food seja verdadeiro != de null, undefined, false, NaN...
+                // Renderiza o 1º bloco
+                <View className="w-full px-0 bg-zinc-900" >
+                    <ImageBackground
+                        source={{ uri: food.image }}
+                        style={{
+                            width: '100%',
+                            height: 200,  // Defina a altura 
+                            justifyContent: 'flex-start',
+                            paddingTop: statusBarHeight + 15,
+                        }}
+                        resizeMode="cover"
+                    >
+                        {/* Botão de voltar sobre a imagem */}
+                        <BackButton rota='pages/search' />
+                    </ImageBackground>
+                </View>
+            ) : ( // Caso contrário, Renderiza o 2º bloco
+                <Text style={{ color: '#fff' }}>Carregando detalhes do nome do prato...</Text>
+            )}
+            
                
             {/* Detalhes do alimento abaixo da imagem */}
             <ScrollView 
@@ -95,22 +115,29 @@ export default function FoodDetails() {
                 className="bg-zinc-900 text-zinc-300"
                 showsVerticalScrollIndicator={false}
             >
-                <Section 
-                    name= {`${name}`}
-                    size="text-3xl"
-                    label="+"
-                    action={ () => console.log("Clicou no veja mais")}
-                />
-                <View className='px-4'>
-                    <Text className='text-zinc-400 text-lg'>{ingredientes}</Text>
-                    <Text className='text-zinc-300 text-lg' style={{marginTop: 15}}>Preço: R$ {price}</Text>
-                </View>
+                {food ? ( // Caso food seja verdadeiro != de null, undefined, false, NaN...
+                    // Renderiza o primeiro bloco
+                    <View> 
+                        <Section 
+                            name= {`${food.name}`}
+                            size="text-3xl"
+                            label="+"
+                            action={ () => console.log("Clicou no veja mais")}
+                        />
+                    
+                        <View className='px-4'>
+                            <Text className='text-zinc-400 text-lg'>{food.ingredientes}</Text>
+                            <Text className='text-zinc-300 text-lg' style={{marginTop: 15}}>Preço: R$ {food.price}</Text>
+                        </View>
+                    </View>
+                ): ( // Caso contrário, Renderiza o 2º bloco
+                    <Text style={{ color: '#fff' }}>Carregando detalhes dos ingredientes...</Text>
+                )}
 
                 {/* DETALHES DO RESTAURANTE */}
-                {restaurant ? (
-
+                {restaurant ? ( // Caso restaurant seja verdadeiro != de null, undefined, false, NaN...
+                    // Renderiza o 1º bloco
                     <View>
-                        
                         <Section 
                             name={`Vendido por:  ${restaurant.name}`}
                             size="text-xl"
@@ -143,21 +170,27 @@ export default function FoodDetails() {
                             )}
                         </View>
                     </View>
-                ) : (
+                ) : ( // Caso contrário, Renderiza o 2º bloco 
                     <Text className='text-zinc-400'>Carregando detalhes do restaurante...</Text>
                 )}
 
                 <View className='mt-10 justify-center items-center'>
-                    {/* CustomModal Controlado */}
-                    <Modal visible={showModal} transparent={true} animationType='slide' onRequestClose={() => setShowModal(false)}>
-                        <CustomModal //Passando os valores que CustomModal espera
-                            showModal={showModal} setShowModal={setShowModal} quantity={quantity} 
-                            id={itemId}
-                            name={itemName}
-                            price={itemPrice}
-                            image={imageUri}
-                        />
-                    </Modal>
+
+                    {food ? ( // Caso food seja verdadeiro != de null, undefined, false, NaN...
+                        // Renderiza o 1º bloco 
+                        <Modal visible={showModal} transparent={true} animationType='slide' onRequestClose={() => setShowModal(false)}>
+                            <CustomModal //Passando os valores que CustomModal espera
+                                showModal={showModal} setShowModal={setShowModal} quantity={quantity} 
+                                id={food.id}
+                                name={food.name}
+                                price={food.price}
+                                image={food.image}
+                            />
+                        </Modal>
+                    ) : ( // Caso contrário, Renderiza o 2º bloco 
+                        <Text className='text-xl text-zinc-200'>Não foi possível passar os valores do food como parâmetro para o modal</Text>
+                    )}
+                    
                     <View className='flex flex-row justify-between'>
                         
                         {/* Botão de diminuir a quantidade  */}
@@ -185,10 +218,12 @@ export default function FoodDetails() {
                         </Pressable>
 
                     </View>
-                        <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
-                        <View className='mt-2'></View>
-                        <Text className='text-zinc-200 text-xl'>{quantity}</Text>
-                        <View className='mt-10'></View>
+
+                    <Text style={{}} className='text-zinc-400 text-xs mt-2'>Adiconar ao Carrinho</Text>
+                    <View className='mt-2'></View>
+                    <Text className='text-zinc-200 text-xl'>{quantity}</Text>
+                    <View className='mt-10'></View>
+
                 </View>
             </ScrollView>
         </View>
