@@ -1,12 +1,18 @@
 import { View, Text, Pressable, Image } from 'react-native';
 import { FoodProps } from '..'
 import { Ionicons, Feather } from '@expo/vector-icons' 
+import { router, useRouter } from 'expo-router'; 
 
 export function ItemFood({ food }: { food: FoodProps }) {
     return (
         <Pressable 
             className='flex flex-col rounded-xl relative'
-            onPress={() => console.log("Clicou no/na " +food.name)}
+            onPress={() => router.navigate({
+                pathname: '/pages/foodDetails',
+                params: {
+                    id: food.id
+                }
+            })}
         >
             {/* Adicionando a Imagem ao Item/card */}
             <Image

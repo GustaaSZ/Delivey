@@ -14,14 +14,7 @@ export function ItemFood2({ food }: { food: FoodProps }) {
                 pathname: '/pages/foodDetails', // Caminho absoluto a partir da pasta 'src/app'
                 // Passando os parâmetros para navegação pra tela de foodDetails
                 params: {
-                    id: food.id,
-                    // name: food.name,
-                    // price: food.price,
-                    // rating: food.rating,
-                    // image: food.image,
-                    // time: food.time,
-                    // ingredientes: food.ingredientes,
-                    // restaurantId: food.restaurantId,
+                    id: food.id
                 } 
             })} 
         >
