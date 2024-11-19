@@ -38,6 +38,8 @@ export default function Index() {
         {/* Chamando o  trendingFoods*/}
         <TrendingFoods/>
 
+        <View className="mt-10"></View>
+
         <Section 
           name="Famosos no DelivExpress"
           size="text-xl"
@@ -47,6 +49,7 @@ export default function Index() {
 
         {/* Chamando o  trendingRestaurants*/}
         <TrendingRestaurants/>
+        <View className="mb-10"></View>
 
       </ScrollView>
     </DrawerSceneWrapper>
