@@ -21,6 +21,14 @@ export default function RegisterUser() {
     const [ userPassword, setUserPassword ] = useState('');
     const [error, setError] = React.useState('');
 
+    // Funções para validar o cpf
+    const [ isValidCPF, setIsValidCPF ] = useState< boolean | null> (null);
+    const handleCPFChange = (text: string ) => {
+        setUserCPF(text);
+        // Verificando se o cpf é válido
+        // ...
+    }
+
 
     // Função para adiconar um novo usuário
     const handleAddUser = async () => {
@@ -95,7 +103,8 @@ export default function RegisterUser() {
 
             {/* Nome */}
             <TextInput 
-                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
+                style={{height: 40}}
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserName} 
                 maxLength={40} // -> Limitando o tamanho para 40
                 value={userName}
@@ -109,7 +118,8 @@ export default function RegisterUser() {
 
             {/* E-mail */}
             <TextInput 
-                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
+                style={{height: 40}}
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserAddressEmail} 
                 value={userAddressEmail}
                 maxLength={30} // -> limitando o tamanho para 30
@@ -122,18 +132,22 @@ export default function RegisterUser() {
             </TextInput>
 
             {/* CPF */}
-            <TextInput 
-                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
-                onChangeText={setUserCPF} 
+           <TextInputMask 
+                type={'cpf'}
+                maxLength={14}// limitando o número de caracteres/numbers para 15
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 40, paddingLeft: 16, color: '#d4d4d8'}}
                 value={userCPF}
-                maxLength={30} // -> limitando o tamanho para 30
-                placeholder='Cpf'
-                keyboardType='email-address'
+                onChangeText={ handleCPFChange }
+                placeholder='CPF'
                 placeholderTextColor={'#a1a1aa'}
                 underlineColorAndroid='transparent'
-                // editable
             >
-            </TextInput>
+            </TextInputMask>
+
+            // get the validation
+
+            const cpfIsValid = this.cpfField.isValid()
+            console.log(cpfIsValid) // boolean
 
             {/* Numero */}
             <TextInputMask 
@@ -144,7 +158,7 @@ export default function RegisterUser() {
                     dddMask: '(99) '
                 }}
                 maxLength={15}// limitando o número de caracteres/numbers para 15
-                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 36, paddingLeft: 16, color: '#d4d4d8'}}
+                style={{width: 340, borderColor: '#52525b',borderWidth: 1 ,borderRadius: 8, height: 40, paddingLeft: 16, color: '#d4d4d8'}}
                 onChangeText={setUserPhone} 
                 value={userPhone}
                 placeholder='Numero de telefone'
@@ -155,7 +169,8 @@ export default function RegisterUser() {
 
             {/* Password */}
             <TextInput 
-                className='w-100 px-4 h-8 border border-zinc-600 rounded-lg text-zinc-300' 
+                style={{height: 40}}
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
                 onChangeText={setUserPassword} 
                 value={userPassword}
                 maxLength={40}
@@ -171,7 +186,7 @@ export default function RegisterUser() {
 
         <View className='items-center justify-center mt-10 px-10'>
             {error ? (
-                <Text style={{ color: '#dc2626', marginBottom: 6, fontSize: 13 }}>{error}</Text>
+                <Text style={{ color: '#dc2626', marginBottom: 1, fontSize: 13 }}>{error}</Text>
             ) : null }
         <Pressable 
             style={{backgroundColor: '#fcd34d'}}
