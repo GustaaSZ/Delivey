@@ -19,6 +19,7 @@ export default function RegisterUser() {
     const [ userPhone, setUserPhone ] = useState('');
     const [ userCPF, setUserCPF ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
+    const [ userConfirmPassword, setUserConfirmPassword ] = useState('');
     const [error, setError] = React.useState('');
 
     // Funções para validar o cpf
@@ -32,37 +33,46 @@ export default function RegisterUser() {
 
     // Função para adiconar um novo usuário
     const handleAddUser = async () => {
-
-        // Verificando se todos os campos (são obrigatórios) forma preenchidos
-        if(!userName || !userAddressEmail || !userPhone || !userCPF || ! userPassword){
-            setError('Por favor, preencha todos os campos!')
+        // Verificando se todos os campos obrigatórios foram preenchidos
+        if (!userName || !userAddressEmail || !userPhone || !userCPF || !userPassword) {
+            setError('Por favor, preencha todos os campos!');
             return;
         }
+    
         // Limpando o erro
-        setError('')
-
-        // Criando uma tipagem do user
-        const newUser = {
-            name: userName,
-            email: userAddressEmail,
-            cpf: userCPF,
-            phone: userPhone,
-            password: userPassword,
-        };
-        
-        // Cód que pode apresentar erro, por isso, usamos try catch()
+        setError('');
+    
+        // Verificação se a senha é igual à senha confirmada
+        if (userPassword !== userConfirmPassword) {
+            Alert.alert('Erro', 'As senhas não correspondem!');
+            return;
+        }
+    
         try {
-            // fazendo requisição do tipo post para add user
+            
+            // // Gerar o hash da senha
+           
+    
+            // Criando a estrutura do usuário
+            const newUser = {
+                name: userName.trim(),
+                email: userAddressEmail.trim(),
+                cpf: userCPF.trim(),
+                phone: userPhone.trim(),
+                password: userPassword,
+            };
+    
+            // Fazendo a requisição POST para cadastrar o usuário
             const response = await fetch("http://192.168.1.12:3000/users", {
                 method: 'POST',
-                headers : {
+                headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newUser)
+                body: JSON.stringify(newUser),
             });
-
-            // Verificando se o response deu certo
-            if(response.ok){
+    
+            // Verificando o resultado da requisição
+            if (response.ok) {
                 Alert.alert("Sucesso", "Usuário cadastrado com sucesso!");
                 // Limpando os campos após o cadastro
                 setUserName('');
@@ -70,16 +80,18 @@ export default function RegisterUser() {
                 setUserCPF('');
                 setUserPhone('');
                 setUserPassword('');
-                router.navigate('/login');
+                setUserConfirmPassword(''); // Certifique-se de limpar o campo de confirmação de senha também
+                router.push('/login'); // Redirecionando para a tela de login
             } else {
-                Alert.alert("Erro", "Naõ foi possível cadastrar o usuário!");
+                const errorMessage = await response.text();
+                Alert.alert("Erro", `Não foi possível cadastrar o usuário: ${errorMessage}`);
             }
         } catch (error) {
             console.error("Erro ao cadastrar usuário:", error);
             Alert.alert("Erro", "Ocorreu um erro ao tentar cadastrar o usuário.");
         }
+    };
 
-    }
  return (
     <ScrollView className='flex flex-1 bg-zinc-900'>
         <View className='items-center justify-between'>
@@ -144,11 +156,6 @@ export default function RegisterUser() {
             >
             </TextInputMask>
 
-            // get the validation
-
-            const cpfIsValid = this.cpfField.isValid()
-            console.log(cpfIsValid) // boolean
-
             {/* Numero */}
             <TextInputMask 
                 type='cel-phone'
@@ -181,6 +188,20 @@ export default function RegisterUser() {
             >
             </TextInput>
             
+            {/* Confirm Password */}
+            <TextInput 
+                style={{height: 40}}
+                className='w-100 px-4 border border-zinc-600 rounded-lg text-zinc-300' 
+                onChangeText={setUserConfirmPassword} 
+                value={userConfirmPassword}
+                maxLength={40}
+                inputMode='text'
+                placeholder='Confirme sua Senha'
+                placeholderTextColor={'#a1a1aa'}
+                underlineColorAndroid='transparent'
+            >
+            </TextInput>
+            
             
         </View>
 
@@ -197,6 +218,7 @@ export default function RegisterUser() {
         </Pressable>
         <Link href={'/login'} style={{fontSize: 13}} className=' mt-6 text-zinc-500 underline'> Já possui uma conta? Faça Login</Link>
         </View>
+        <View className='mb-20'></View>
     </ScrollView>
    
   );
