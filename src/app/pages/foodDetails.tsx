@@ -50,7 +50,7 @@ export default function FoodDetails() {
             try { // caso dê errado, primeiro renderizamos, depois tratamos
                 
                 // REQUISIÇÃO FOOD
-                const foodResponse = await fetch(`http://192.168.1.12:3000/foods/${id}`); // requisição http usando fetch para obter os dados do alimento a partir do endpoint de foods que depende de id
+                const foodResponse = await fetch(`http://192.168.1.30:3000/foods/${id}`); // requisição http usando fetch para obter os dados do alimento a partir do endpoint de foods que depende de id
                 if (!foodResponse.ok) { // verificando se a requisição foi bem sucedida, caso não, lançamos mensagem de erro
                     throw new Error(`Erro ao buscar comida! Status: ${foodResponse.status}`);
                 }
@@ -62,7 +62,7 @@ export default function FoodDetails() {
 
                 // requisição http usando fetch para obter os dados do restaurant a partir do endpoint de restaurants que depende do restaurantId, presente no endpoint de foods
                 // Neste cado, passamos foodData da requisição anterior e pegamos o valor de restaurantId que pertence ao endpoint de foods
-                const restaurantResponse = await fetch(`http://192.168.1.12:3000/restaurants/${foodData.restaurantId}`); 
+                const restaurantResponse = await fetch(`http://192.168.1.30:3000/restaurants/${foodData.restaurantId}`); 
                 if (!restaurantResponse.ok) {  // verificando se a requisição foi bem sucedida, caso não, lançamos mensagem de erro
                     throw new Error(`Erro ao buscar restaurante! Status: ${restaurantResponse.status}`);
                 }

@@ -18,7 +18,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     async function getFoods() {
-      const response = await fetch("http://192.168.1.12:3000/foods");
+      const response = await fetch("http://192.168.1.30:3000/foods");
       const data = await response.json();
       setFoods(data);
       setFilteredFoods(data); // Inicializa com todos os alimentos

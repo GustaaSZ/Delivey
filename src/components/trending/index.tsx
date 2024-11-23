@@ -30,7 +30,7 @@ export function TrendingFoods() {
         // Função anônima
         async function getFoods() {
             // Requisição HTTP (Busca da API)
-            const response = await fetch("http://192.168.1.12:3000/foods")
+            const response = await fetch("http://192.168.1.30:3000/foods")
             // 192.168.1.12
             // Transformando o response em json que agora será armazenado no data
             const data = await response.json()
