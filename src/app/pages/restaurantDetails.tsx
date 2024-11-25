@@ -17,6 +17,7 @@ interface Restaurant {
     image: string;
     imageLocal: string;
     description: string;
+    address: string;
 }
 
 export default function RestaurantDetails() {
@@ -110,7 +111,7 @@ export default function RestaurantDetails() {
 
                     <View className='justify-center items-center'>
                         <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
-                        <Text className='text-zinc-400 text-xs mb-10'>{restaurant.name} de Taguatinga </Text>
+                        <Text className='text-zinc-400 text-xs mb-10'>{restaurant.address}</Text>
                     </View>
                 </View>
             ) : (
