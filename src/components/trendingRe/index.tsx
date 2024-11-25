@@ -39,7 +39,7 @@ export function TrendingRestaurants() {
         // restaurants = array de objetos na qual os objetos possuem os atributos listados em RestaurantProps
         <FlatList
             data={restaurants} // passando dentro do data o useState -> a lista dos componentes
-            renderItem={ ({ item }) => <ItemRestaurant restaurant={ item } /> } // renderizar um componente do ItemFood item por item
+            renderItem={ ({ item }) => <ItemRestaurant restaurant={ item } /> } // renderizar um componente do ItemRestaurant item por item
             horizontal={ true } // fazendo com que essa lista seja horizontal
             contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16}}// Adicionando espaçamento entre os elementos da lista
             showsHorizontalScrollIndicator={false}

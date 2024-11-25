@@ -154,6 +154,12 @@ export default function RootLayout() {
                 drawerItemStyle: { display: 'none' } // ocultando do drawer
               }}
             />
+            <Drawer.Screen 
+              name="pages/restaurantDetails" 
+              options={{ 
+                drawerItemStyle: { display: 'none' } // ocultando do drawer
+              }}
+            />
           </Drawer>
         </CartProvider>
       </PaymentProvider>

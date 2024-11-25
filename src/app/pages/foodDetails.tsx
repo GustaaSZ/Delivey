@@ -11,17 +11,17 @@ import CustomModal  from '../../components/moldal';
 // Constante pra definir uma altura padrão na view
 const statusBarHeight = Constants.statusBarHeight;
 
-    // Definindo interce Food que define os valores e os tipos que são esperados de um objeto Food
-    interface Food {
-        id: string;
-        name: string;
-        price: number;
-        rating: number;
-        image: string;
-        time: string;
-        ingredientes: string[];
-        restaurantId: string;
-    }
+// Definindo interce Food que define os valores e os tipos que são esperados de um objeto Food
+interface Food {
+    id: string;
+    name: string;
+    price: number;
+    rating: number;
+    image: string;
+    time: string;
+    ingredientes: string[];
+    restaurantId: string;
+}
     
     // Definindo interce Restaurant que define os valores e os tipos que são esperados de um Objeto Restaurant
     interface Restaurant {

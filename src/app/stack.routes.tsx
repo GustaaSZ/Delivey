@@ -4,6 +4,7 @@ import Payment  from './payment';
 import PaymentCard from './paymentCard';
 import PaymentFinaly from './paymentFinaly';
 import RegisterUser from './registerUser';
+import RestaurantDetails from './pages/restaurantDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,10 @@ export default function StackRoutes() {
         name='registerUser'
         component={RegisterUser}
       />
+      {/* <Stack.Screen
+        name='restaurantDetails'
+        component={RestaurantDetails}
+      /> */}
    </Stack.Navigator>
   );
 }
