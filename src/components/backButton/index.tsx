@@ -12,9 +12,9 @@ export default function BackButton( { rota }: Props ) {
   const router = useRouter();
 
   return (
-    <View className='w-full items-center justify-between flex flex-row text-zinc-400'>
+    <View className='w-full items-center flex flex-row text-zinc-400'>
       <Pressable 
-        style={{ left: 20 }}
+        style={{ left: 18, marginTop: -20 }}
         className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center'
         // Navegação para a rota passada ao chamar o componente BackButton
         // Passando rota como pathname as href

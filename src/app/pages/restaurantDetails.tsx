@@ -16,6 +16,7 @@ interface Restaurant {
     name: string;
     image: string;
     imageLocal: string;
+    description: string;
 }
 
 export default function RestaurantDetails() {
@@ -85,15 +86,11 @@ export default function RestaurantDetails() {
                             action={() => console.log('Clicou no veja mais')}
                         />
                     </View>
-                    
-                    {/* <View className='px-4'>
-                        {restaurant.image && (
-                            <Image
-                                source={{ uri: restaurant.image }}
-                                style={{ width: 70, height: 70, borderRadius: 50 }}
-                            />
-                        )}
-                    </View> */}
+
+                    {/* View para description */}
+                    <View className='justify-center items-center px-4'>
+                        <Text className='text-zinc-300 text-lg mb-10'> {restaurant.description} </Text>    
+                    </View>
 
                     <View className='px-4'>
                         
@@ -113,14 +110,13 @@ export default function RestaurantDetails() {
 
                     <View className='justify-center items-center'>
                         <Text className='text-zinc-100 text-xl' style={{marginTop: 15}} >Mais perto de sua localização Atual:</Text>
-                        <Text className='text-zinc-400 text-xs'>{restaurant.name} de Taguatinga </Text>
+                        <Text className='text-zinc-400 text-xs mb-10'>{restaurant.name} de Taguatinga </Text>
                     </View>
                 </View>
             ) : (
                 // Caso contrário, renderiza um texto informando que a busca falhou
                 <Text style={{ color: '#fff' }}>Carregando detalhes do restaurante...</Text>
             )}
-
            </ScrollView>
         </View>
     );

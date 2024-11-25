@@ -4,75 +4,88 @@
       "id": "1",
       "name": "Jeronimo",
       "image": "https://imgur.com/gukOjmT.png",
-      "imageLocal": "https://imgur.com/krgQgXq.png"
+      "imageLocal": "https://imgur.com/krgQgXq.png",
+      "description": "Jeronimo oferece uma experiência casual com hambúrgueres gourmet, porções generosas e um ambiente descontraído para todas as idades."
     },
     {
       "id": "2",
       "name": "McDonald's",
       "image": "https://i.imgur.com/su4iB3p.png",
-      "imageLocal": "https://imgur.com/5a7NI7t.png"
+      "imageLocal": "https://imgur.com/5a7NI7t.png",
+      "description": "O McDonald's é a rede mundialmente famosa por seus hambúrgueres icônicos, batatas fritas crocantes e opções rápidas e convenientes."
     },
     {
       "id": "3",
       "name": "Outback",
       "image": "https://imgur.com/gaGNAq8.png",
-      "imageLocal": "https://imgur.com/wy4oYIS.png"
+      "imageLocal": "https://imgur.com/wy4oYIS.png",
+      "description": "O Outback oferece uma autêntica experiência australiana com steaks suculentos, costelas ao molho barbecue e acompanhamentos únicos."
     },
     {
       "id": "4",
       "name": "Sushiloko",
       "image": "https://imgur.com/pKtOYNC.png",
-      "imageLocal": "https://imgur.com/YY3Yvgl.png"
+      "imageLocal": "https://imgur.com/YY3Yvgl.png",
+      "description": "Sushiloko é o destino ideal para os amantes de sushi, com uma variedade de opções frescas, combos econômicos e pratos tradicionais japoneses."
     },
     {
       "id": "5",
       "name": "KFC",
       "image": "https://i.imgur.com/sZ1Jye3.png",
-      "imageLocal": "https://imgur.com/FOvlz9o.png"
+      "imageLocal": "https://imgur.com/FOvlz9o.png",
+      "description": "KFC é a casa do frango frito mais famoso do mundo, oferecendo baldes generosos, acompanhamentos deliciosos e sabor irresistível."
     },
     {
       "id": "6",
       "name": "La Brasa",
       "image": "https://imgur.com/9naUERj.png",
-      "imageLocal": "https://imgur.com/tgX7Rdk.png"
+      "imageLocal": "https://imgur.com/tgX7Rdk.png",
+      "description": "La Brasa é especializada em grelhados e carnes premium, combinando tradição e sofisticação para um jantar inesquecível."
     },
     {
       "id": "7",
       "name": "Coco Bambu",
       "image": "https://imgur.com/Zv8hozc.png",
-      "imageLocal": "https://imgur.com/1o0SUbZ.png"
+      "imageLocal": "https://imgur.com/1o0SUbZ.png",
+      "description": "Coco Bambu é conhecido por sua culinária brasileira, com frutos do mar frescos, pratos regionais e porções para compartilhar."
     },
     {
       "id": "8",
       "name": "Buger King",
       "image": "https://imgur.com/eh6AWMu.png",
-      "imageLocal": "https://imgur.com/R0skijX.png"
+      "imageLocal": "https://imgur.com/R0skijX.png",
+      "description": "Burger King oferece hambúrgueres grelhados no fogo, acompanhamentos deliciosos e o famoso Whopper, sempre do seu jeito."
     },
     {
       "id": "9",
       "name": "Magero Burger",
       "image": "https://imgur.com/XTO2t5U.png",
-      "imageLocal": "https://imgur.com/ZebCW1E.png"
+      "imageLocal": "https://imgur.com/ZebCW1E.png",
+      "description": "Magero Burger combina criatividade e sabor em seus hambúrgueres artesanais, com ingredientes frescos e combinações surpreendentes."
     },
     {
       "id": "10",
       "name": "Pizzaria Cesár",
       "image": "https://imgur.com/ECAvw8u.png",
-      "imageLocal": "https://imgur.com/tHtEJxC.png"
+      "imageLocal": "https://imgur.com/tHtEJxC.png",
+      "description": "A Pizzaria Cesár é a escolha certa para amantes de pizza, oferecendo massas artesanais, coberturas generosas e um menu diversificado."
     },
     {
       "id": "11",
       "name": "Giraffas",
       "image": "https://imgur.com/XYmljrt.png",
-      "imageLocal": "https://imgur.com/ozhcuBX.png"
+      "imageLocal": "https://imgur.com/ozhcuBX.png",
+      "description": "Giraffas combina o sabor brasileiro com a conveniência de uma rede de fast food, oferecendo pratos variados e opções para todos os gostos."
     },
     {
       "id": "12",
       "name": "Oakberry",
       "image": "https://imgur.com/FriNrnO.png",
-      "imageLocal": "https://imgur.com/Fru3jtu.png"
+      "imageLocal": "https://imgur.com/Fru3jtu.png",
+      "description": "Oakberry é referência em açaí premium, com ingredientes naturais, combinações saudáveis e um menu personalizável para todos os momentos."
     }
   ],
+
   "foods": [
     {
       "id": "1",

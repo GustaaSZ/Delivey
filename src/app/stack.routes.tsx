@@ -31,10 +31,10 @@ export default function StackRoutes() {
         name='registerUser'
         component={RegisterUser}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name='restaurantDetails'
         component={RestaurantDetails}
-      /> */}
+      />
    </Stack.Navigator>
   );
 }
