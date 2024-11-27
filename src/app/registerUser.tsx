@@ -63,7 +63,7 @@ export default function RegisterUser() {
             };
     
             // Fazendo a requisição POST para cadastrar o usuário
-            const response = await fetch("http://192.168.1.12:3000/users", {
+            const response = await fetch("http://192.168.1.29:3000/users", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

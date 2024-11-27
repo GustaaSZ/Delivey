@@ -42,7 +42,7 @@ export default function Login() {
         // Cód que pode apresentar erro, por isso, usamos try catch()
         try {
             // Fazendo uma requisição GET com parâmetros de consulta (query params)
-        const response = await fetch(`http://192.168.1.12:3000/users?email=${encodeURIComponent(userAddressEmail)}&password=${encodeURIComponent(userPassword)}`, {
+        const response = await fetch(`http://192.168.1.29:3000/users?email=${encodeURIComponent(userAddressEmail)}&password=${encodeURIComponent(userPassword)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

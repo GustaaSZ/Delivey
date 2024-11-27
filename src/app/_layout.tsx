@@ -116,6 +116,19 @@ export default function RootLayout() {
                 ),
               }}
             />
+            <Drawer.Screen 
+              name="user" 
+              options={{ 
+                drawerLabel: "User", 
+                drawerIcon: ({ focused }) => (
+                  <Feather 
+                    name={focused ? 'user' : 'user'} 
+                    color={focused ? '#d4d4d8' : '#e4e4e7'} 
+                    size={18} 
+                  />
+                ),
+              }}
+            />
             
             {/* Ocultando as rotas indesejadas */}
             <Drawer.Screen 
