@@ -101,7 +101,7 @@ export default function FoodDetails() {
                         resizeMode="cover"
                     >
                         {/* Botão de voltar sobre a imagem */}
-                        <BackButton rota='pages/search' />
+                        <BackButton rota='../' />
                     </ImageBackground>
                 </View>
             ) : ( // Caso contrário, Renderiza o 2º bloco

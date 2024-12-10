@@ -28,41 +28,77 @@ export default function Index() {
           <View style={{ height: 1 }} className="rounded-full w-90 gap-1 bg-zinc-600 my-6"></View>
         </View>
 
+        {/* --- COMIDAS EM ALTA NO APP --- */}
         <Section 
-          name="Comidas em Alta no DeliveryExpress"
+          name="Queridinhos no DeliveryExpress"
           size="text-xl"
           label=""
           action={ () => console.log("Clicou no veja mais")}
         />
-
-        {/* Chamando o  trendingFoods para os famosos no app*/}
         <TrendingFoods categoryId="9"/>
         <View className="mb-5"></View>
 
+        {/* --- HAMBUERGUERES EM ALTA --- */}
+        <Section 
+          name="Hamburgueres em Alta "
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+        <TrendingFoods categoryId="1"/>
+        <View className="mt-10"></View>
+
+
+        {/* --- PIZZAS EM ALTA --- */}
+        <Section 
+          name="Pizzas mais Pedidas"
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+        <TrendingFoods categoryId="2"/>
+        <View className="mt-10"></View>
+
+        {/* --- RESTAURANTES CADASTRADOS NO APP --- */}
         <Section 
           name="Restaurantes Famosos no DeliveryExpress"
           size="text-xl"
           label=""
           action={ () => console.log("Clicou no veja mais")}
         />
-
-        {/* Chamando o  trendingRestaurants*/}
         <TrendingRestaurants/>
         <View className="mb-2"></View>
 
+        {/* --- PETISCOS EM ALTA --- */}
         <Section 
-          name="Hamburgueres em Alta "
+          name="Petiscos Inesquecíveis"
           size="text-xl"
-          label=""
+          label="Veja mais"
           action={ () => console.log("Clicou no veja mais")}
         />
-
-        {/* Chamando o  trendingFoods*/}
-        <TrendingFoods categoryId="1"/>
-
+        <TrendingFoods categoryId="7"/>
         <View className="mt-10"></View>
 
-        
+
+        {/* --- SOBREMESAS EM ALTA --- */}
+        <Section 
+          name="Sobremesas Surpreendentes"
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+        <TrendingFoods categoryId="6"/>
+        <View className="mt-10"></View>
+
+         {/* --- BEBIDAS EM ALTA --- */}
+         <Section 
+          name="Bebidas Refrescantes"
+          size="text-xl"
+          label="Veja mais"
+          action={ () => console.log("Clicou no veja mais")}
+        />
+        <TrendingFoods categoryId="5"/>
+        <View className="mt-10"></View>
 
       </ScrollView>
     </DrawerSceneWrapper>
