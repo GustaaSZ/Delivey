@@ -107,6 +107,7 @@
       "rating": 5,
       "image": "https://imgur.com/3aH8zZg.png",
       "restaurantId": "6",
+      "categoryId": "1",
       "ingredientes": "2 burgers de 100g, 2 fatias de queijo prato, 4 fatias de bacon."
     },
     {
@@ -118,6 +119,7 @@
       "rating": 4.9,
       "image": "https://imgur.com/8hHJl5Z.png",
       "restaurantId": "6",
+      "categoryId": "9",
       "ingredientes": "Onion ring + Batata + Refri + Molho da casa."
     },
     {
@@ -129,6 +131,7 @@
       "rating": 4.9,
       "image": "https://imgur.com/lhpVU7w.png",
       "restaurantId": "7",
+      "categoryId": "9",
       "ingredientes": "Picanha Black Angus (300g) Picanha da raça Angus, acompanhada de vinagrete, chimichurri, farofa amarela, mandioca cozida ze arroz biro biro."
     },
     {
@@ -140,6 +143,7 @@
       "rating": 5,
       "image": "https://imgur.com/TYJjN1m.png",
       "restaurantId": "7",
+      "categoryId": "3",
       "ingredientes": "18 camarões empanados e recheados com catupiry, sobre um cremoso arroz de moqueca com camarõees e coentro, coberto com batata palha. Acompanha farofa de panko com bacon e alhoporó."
     },
     {
@@ -151,6 +155,7 @@
       "rating": 4.5,
       "image": "https://imgur.com/UFRMRI0.png",
       "restaurantId": "2",
+      "categoryId": "1",
       "ingredientes": "Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim."
     },
     {
@@ -162,6 +167,7 @@
       "rating": 5,
       "image": "https://imgur.com/QTP9g3J.png",
       "restaurantId": "10",
+      "categoryId": "2",
       "ingredientes": "Massa de fermentação de longa, Molho de tomate Pelatti, muçarela, Calabresa acebolada."
     },
     {
@@ -173,6 +179,7 @@
       "rating": 4.9,
       "image": "https://imgur.com/ukyFp6B.png",
       "restaurantId": "10",
+      "categoryId": "2",
       "ingredientes": "Massa de longa fermentação ,fina camada de muçarela chocolate ao leite + pedaços de morango"
     },
     {
@@ -184,14 +191,46 @@
       "rating": 4.5,
       "image": "https://imgur.com/TP245Dn.png",
       "restaurantId": "12",
+      "categoryId": "4",
       "ingredientes": "Açaí oakberry + aveia + leite ninho + morango."
     }
   ],
-  "users": [
+  "categories": [
     {
-      "id": "dcad",
-      "email": "gustavo@gmail.com",
-      "password": "123"
+      "id": "1",
+      "name": "Hambúrgueres"
+    },
+    {
+      "id": "2",
+      "name": "Pizzas"
+    },
+    {
+      "id": "3",
+      "name": "Frutos do Mar"
+    },
+    {
+      "id": "4",
+      "name": "Açaí e Milk shake"
+    },
+    {
+      "id": "5",
+      "name": "Bebidas"
+    },
+    {
+      "id": "6",
+      "name": "Sobremesas"
+    },
+    {
+      "id": "7",
+      "name": "Petiscos"
+    },
+    {
+      "id": "8",
+      "name": "Pratos"
+    },
+    {
+      "id": "9",
+      "name": "Famosos no Delivery Express"
     }
   ]
 }

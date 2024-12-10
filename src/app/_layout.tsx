@@ -14,28 +14,28 @@ const Stack = createNativeStackNavigator();
 
 export default function RootLayout() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Simulando um token de autenticação
-  useEffect(() => {
-    const simulatedToken = 'a'; // Coloque qualquer string aqui
-    setIsAuthenticated(!!simulatedToken); // Se tiver uma string, o usuário será considerado autenticado
-  }, []);
+  // // Simulando um token de autenticação
+  // useEffect(() => {
+  //   const simulatedToken = 'a'; // Coloque qualquer string aqui
+  //   setIsAuthenticated(!!simulatedToken); // Se tiver uma string, o usuário será considerado autenticado
+  // }, []);
 
-  if (!isAuthenticated) {
-    return (
-      <GestureHandlerRootView >
-        <Stack.Navigator screenOptions={{
-            headerShown: false // Remove o cabeçalho de todas as telas dentro do Stack
+  // if (!isAuthenticated) {
+  //   return (
+  //     <GestureHandlerRootView >
+  //       <Stack.Navigator screenOptions={{
+  //           headerShown: false // Remove o cabeçalho de todas as telas dentro do Stack
             
-          }}
-        >
-          <Stack.Screen name="registerUser" component={RegisterUser} />
-          <Stack.Screen name='login' component={Login} />
-        </Stack.Navigator>
-      </GestureHandlerRootView>
-    );
-  }
+  //         }}
+  //       >
+  //         <Stack.Screen name="registerUser" component={RegisterUser} />
+  //         <Stack.Screen name='login' component={Login} />
+  //       </Stack.Navigator>
+  //     </GestureHandlerRootView>
+  //   );
+  // }
   
   return (
     
@@ -110,19 +110,6 @@ export default function RootLayout() {
                 drawerIcon: ({ focused }) => (
                   <Feather 
                     name={focused ? 'credit-card' : 'credit-card'} 
-                    color={focused ? '#d4d4d8' : '#e4e4e7'} 
-                    size={18} 
-                  />
-                ),
-              }}
-            />
-            <Drawer.Screen 
-              name="user" 
-              options={{ 
-                drawerLabel: "User", 
-                drawerIcon: ({ focused }) => (
-                  <Feather 
-                    name={focused ? 'user' : 'user'} 
                     color={focused ? '#d4d4d8' : '#e4e4e7'} 
                     size={18} 
                   />

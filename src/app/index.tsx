@@ -29,27 +29,40 @@ export default function Index() {
         </View>
 
         <Section 
-          name="Comidas em Alta no DelivExpress"
+          name="Comidas em Alta no DeliveryExpress"
           size="text-xl"
-          label="Veja mais"
+          label=""
           action={ () => console.log("Clicou no veja mais")}
         />
 
-        {/* Chamando o  trendingFoods*/}
-        <TrendingFoods/>
-
-        <View className="mt-10"></View>
+        {/* Chamando o  trendingFoods para os famosos no app*/}
+        <TrendingFoods categoryId="9"/>
+        <View className="mb-5"></View>
 
         <Section 
-          name="Famosos no DelivExpress"
+          name="Restaurantes Famosos no DeliveryExpress"
           size="text-xl"
-          label="Veja mais"
+          label=""
           action={ () => console.log("Clicou no veja mais")}
         />
 
         {/* Chamando o  trendingRestaurants*/}
         <TrendingRestaurants/>
-        <View className="mb-10"></View>
+        <View className="mb-2"></View>
+
+        <Section 
+          name="Hamburgueres em Alta "
+          size="text-xl"
+          label=""
+          action={ () => console.log("Clicou no veja mais")}
+        />
+
+        {/* Chamando o  trendingFoods*/}
+        <TrendingFoods categoryId="1"/>
+
+        <View className="mt-10"></View>
+
+        
 
       </ScrollView>
     </DrawerSceneWrapper>
