@@ -160,6 +160,12 @@ export default function RootLayout() {
                 drawerItemStyle: { display: 'none' } // ocultando do drawer
               }}
             />
+            <Drawer.Screen 
+              name="location" 
+              options={{ 
+                drawerItemStyle: { display: 'none' } // ocultando do drawer
+              }}
+            />
           </Drawer>
         </CartProvider>
       </PaymentProvider>

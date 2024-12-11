@@ -1,8 +1,10 @@
 import { View, Pressable, Text } from 'react-native';
 import { Ionicons, Feather } from '@expo/vector-icons' 
 import {DrawerToggleButton} from "@react-navigation/drawer"
+import { useRouter } from 'expo-router';
 
 export function Header() {
+    const router = useRouter();
  return (
    <View className='w-full items-center justify-between flex flex-row text-zinc-400'>
     <Pressable className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center'>
@@ -19,8 +21,12 @@ export function Header() {
         </View>
     </View>
 
-    <Pressable className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center'>
-        <Feather name="settings" size={20} color="#a1a1aa"/>
+    <Pressable className='w-10 h-10 bg-zinc-800 rounded-full flex justify-center items-center'
+        onPress={() => router.navigate({
+            pathname: '/location'
+        })}
+    >
+        <Feather name="map-pin" size={20} color="#a1a1aa"/>
     </Pressable>
    </View>
   );
