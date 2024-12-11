@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { View, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { 
@@ -16,6 +16,7 @@ export default function Location () {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
     const [ location, setLocation ] = useState<LocationObject | null>(null);
+    const mapRef = useRef<MapView>(null);
 
     const requestPermissions = async () => {
         const { granted } = await requestForegroundPermissionsAsync();
@@ -36,8 +37,12 @@ export default function Location () {
             timeInterval: 1000,
             distanceInterval: 1
         }, (response) => {
-            console.log("Nova localização! ", response);
+            // console.log("Nova localização! ", response);
             setLocation(response);
+            mapRef.current?.animateCamera({
+                pitch: 70,
+                center: response.coords
+            })
         });
     }, []);
 
@@ -53,7 +58,7 @@ export default function Location () {
                 <View
                     style={{
                         width: "89%",
-                        height: "80%",
+                        height: "83%",
                         borderRadius: 20,
                         overflow: 'hidden', // Garante que o MapView siga o formato arredondado
                         alignSelf: 'center', // Centraliza se necessário
@@ -63,6 +68,7 @@ export default function Location () {
                     {
                         location &&
                         <MapView 
+                            ref={mapRef}
                             style={{ flex: 1 }}
                             initialRegion={{
                                 latitude: location.coords.latitude , 
