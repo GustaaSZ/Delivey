@@ -8,7 +8,7 @@ import { useCart } from '../components/context';
 import { usePayment } from '../components/contextCard';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
-
+import { Alert } from 'react-native';
 export default function PaymentFinaly() {
     // constante pra definir uma altura padrão e responsiva na view
     const statusBarHeight = Constants.statusBarHeight;
@@ -19,6 +19,25 @@ export default function PaymentFinaly() {
     const {userPhone} = usePayment();
     const {userAddress} = usePayment();
     const {userCardNumber} = usePayment();
+
+    const handleSubmit = () => {
+        Alert.alert(
+            'Confirmação',
+            'Tem certeza que deseja finalizar o seu pedido?',
+            [
+                {
+                    text: 'Cancelar',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'Confirmar',
+                    onPress: () => router.navigate('/'),
+                },
+            ],
+            { cancelable: false }
+        );
+    }
 
  return (
     <ScrollView className='flex flex-1 bg-zinc-900'>
@@ -130,7 +149,7 @@ export default function PaymentFinaly() {
             style={{ backgroundColor: '#fcd34d' }}
             className='w-full h-14 mt-10 flex items-center justify-center rounded-xl'
             // onPress={ () => router.navigate('/payment') }
-            onPress={  () => router.navigate('/') }
+            onPress={  handleSubmit }
             >   
             <Text className='text-black font-bold text-xl'>Confirmar Compra</Text>
         </Pressable>

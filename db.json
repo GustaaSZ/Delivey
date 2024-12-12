@@ -184,6 +184,30 @@
     },
     {
       "id": "8",
+      "name": "Pizza de Doce de leite",
+      "price": 39.99,
+      "time": "50-60 min",
+      "delivery": 5.99,
+      "rating": 5.0,
+      "image": "https://imgur.com/i8hMtop.png",
+      "restaurantId": "10",
+      "categoryId": "2",
+      "ingredientes": "Massa de longa fermentação ,fina camada de muçarela, doce de leite da melhor qualidade com fina camada de chocolate ao leite + pedaços de amendoin"
+    },
+    {
+      "id": "9",
+      "name": "Pizza de Portuguesa",
+      "price": 39.99,
+      "time": "50-60 min",
+      "delivery": 5.99,
+      "rating": 5.0,
+      "image": "https://imgur.com/0J9UmuS.png",
+      "restaurantId": "10",
+      "categoryId": "2",
+      "ingredientes": "Massa de longa fermentação ,camada de muçarela, Presunto, ovos, ervilha, cebola, rodelas de tomate, pimentão e azeitonas."
+    },
+    {
+      "id": "10",
       "name": "Açai Oakberry 400ml",
       "price": 16.99,
       "time": "20-30 min",
@@ -195,7 +219,7 @@
       "ingredientes": "Açaí oakberry + aveia + leite ninho + morango."
     },
     {
-      "id": "9",
+      "id": "11",
       "name": "Homestead Steak",
       "price": 69.90,
       "time": "40-60 min",
@@ -207,7 +231,7 @@
       "ingredientes": "Homestead Steak Grilled Chicken & Chesse Tilapia Filet Steak Mate’s Fettuccine (também na opção Ribs Desfiada)"
     },
     {
-      "id": "10",
+      "id": "12",
       "name": "Bloomin’ Onion",
       "price": 49.90,
       "time": "30-50 min",
@@ -219,7 +243,7 @@
       "ingredientes": "Nossa famosa cebola gigante e dourada com o autêntico sabor do Outback. Acompanha nosso maravilhoso molho Bloom. *Vegetariano – Esse produto não possui carne de origem animal mas contém ovo e leite."
     },
     {
-      "id": "11",
+      "id": "13",
       "name": "Kookaburra Wings®",
       "price": 39.90,
       "time": "30-50 min",
@@ -231,7 +255,7 @@
       "ingredientes": "10 sobreasas de frango empanadas com um blend de temperos à sua escolha: light, medium ou hot. Servidas com molho tipo Blue Cheese e aipo crocante."
     },
     {
-      "id": "12",
+      "id": "14",
       "name": "Firecracker Shrimp",
       "price": 59.90,
       "time": "30-50 min",
@@ -243,7 +267,7 @@
       "ingredientes": "Deliciosos camarões empanados e temperados com nosso molho Firecracker. Servidos com saborosas tortillas crocantes."
     },
     {
-      "id": "13",
+      "id": "15",
       "name": "King Costela",
       "price": 34.99,
       "time": "40-50 min",
@@ -255,7 +279,7 @@
       "ingredientes": "Chegou o King Costela, com costela desfiada real! Vai encarar? Sanduíche no pão de brioche com hambúrguer de carne bovina grelhada, 2 fatias de queijo sabor cheddar, carne de costela bovina desfiada, chutney de cebola roxa, cebola crispy, 3 anéis de onion rings e maionese de alho."
     },
     {
-      "id": "14",
+      "id": "16",
       "name": "Rodeio Duplo",
       "price": 29.99,
       "time": "40-50 min",
@@ -267,7 +291,7 @@
       "ingredientes": "Dois deliciosos hambúrgueres grelhados no fogo como churrasco, cheddar fatiado, onion rings, molho barbecue e maionese BK®."
     },
     {
-      "id": "15",
+      "id": "17",
       "name": "BK® Mix com Nutella®",
       "price": 14.99,
       "time": "10-20 min",
@@ -279,7 +303,7 @@
       "ingredientes": "O delicioso BK Mix com Nutella®, mix sabor baunilha e farofa de cookies."
     },
     {
-      "id": "16",
+      "id": "18",
       "name": "McFlurry Choco&Cream",
       "price": 19.99,
       "time": "10-20 min",
@@ -291,19 +315,19 @@
       "ingredientes": "Sobremesa composta por bebida láctea sabor baunilha, cobertura de chocolate, tablete de chocolate ao leite e dragê cookie&cream kopenhagen."
     },
     {
-      "id": "17",
+      "id": "19",
       "name": "McShake de Ovomaltine",
       "price": 11.99,
       "time": "10-20 min",
       "delivery": 3.99,
       "rating": 4.2,
-      "image": "https://imgur.com/69a137O.png",
+      "image": "https://imgur.com/Ai6HYn7.png",
       "restaurantId": "2",
       "categoryId": "6",
       "ingredientes": "Deliciosamente cremoso. O novo McShake Ovomaltine é feito com leite e batido na hora. Uma delícia!"
     },
     {
-      "id": "18",
+      "id": "20",
       "name": "Chocolate Thunder",
       "price": 29.99,
       "time": "20-30 min",
@@ -315,49 +339,49 @@
       "ingredientes": "Nosso brownie exclusivo e quentinho com sorvete de baunilha e deliciosa calda de chocolate preparada diariamente no Outback. Finalizado com chantilly e raspas de chocolate. *Contém nozes ou derivado de nozes *Vegetariano – Esse produto contém leite e ovo em sua composição."
     },
     {
-      "id": "19",
+      "id": "21",
       "name": "Cerveja Spaten",
       "price": 9.99,
       "time": "10-20 min",
       "delivery": 3.99,
       "rating": 5.0,
-      "image": "https://imgur.com/eGA3ojZ.png",
+      "image": "https://imgur.com/emQAa3l.png",
       "restaurantId": "6",
       "categoryId": "5",
       "ingredientes": "Nascida em 1397, Spaten é uma das primeiras puro malte do mundo. Seu nome vem de pá, em alemão, a ferramenta utilizada para trabalhar com os cereais."
     },
     {
-      "id": "20",
+      "id": "22",
       "name": "Cerveja Heineken",
       "price": 9.99,
       "time": "10-20 min",
       "delivery": 3.99,
       "rating": 4.9,
-      "image": "https://imgur.com/68sWoR2.png",
+      "image": "https://imgur.com/IDYQx2t.png",
       "restaurantId": "6",
       "categoryId": "5",
       "ingredientes": "Heineken é uma cerveja lager Puro Malte, refrescante e de cor amarelo-dourado, produzida com ingredientes 100% naturais: água, malte e lúpulo"
     },
     {
-      "id": "21",
-      "name": "Coca-cola Ks 350ml",
+      "id": "23",
+      "name": "Coca-cola 350ml",
       "price": 8.99,
       "time": "10-20 min",
       "delivery": 3.99,
       "rating": 5.0,
-      "image": "https://imgur.com/tdmaBqz.png",
+      "image": "https://imgur.com/C2IKrg6.png",
       "restaurantId": "6",
       "categoryId": "5",
       "ingredientes": "O melhor que você pode encontrar da Coca-Cola em um só lugar"
     },
     {
-      "id": "22",
-      "name": "Limoneto 350ml",
+      "id": "24",
+      "name": "Limoneto 500ml",
       "price": 4.99,
       "time": "10-20 min",
       "delivery": 3.99,
       "rating": 5.0,
-      "image": "https://imgur.com/L5RhfuW.png",
+      "image": "https://imgur.com/M8QNJ3o.png",
       "restaurantId": "6",
       "categoryId": "5",
       "ingredientes": "O melhor do H2OH sem açucar."
